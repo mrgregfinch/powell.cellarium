@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler; // used in 1.6.2
 //import cpw.mods.fml.common.Mod.PreInit;    // used in 1.5.2
@@ -31,8 +32,9 @@ public class Cellarium
 	@Instance(value = "CellariumID")
 	public static Cellarium instance;
 	
-	//Blocks
+	//Block List
 	public static Block blockVoid;
+	//End Block List
 	
 	//trying custom tab
 	public static CreativeTabs tabCellarium = new CreativeTabs("tabCellarium") {
@@ -43,9 +45,10 @@ public class Cellarium
 	//end tab
 
 	//register block
-	public void registerBlock(Block block, String string, String name){
+	public void registerBlock(Block block, String string, String name, String tool, int level){
 		GameRegistry.registerBlock(block, string);
 		LanguageRegistry.addName(block, name);
+		MinecraftForge.setBlockHarvestLevel(block, tool, level);
 	}
 	//register Item
 	public void registerItem(Item item, String string, String name){
@@ -60,6 +63,10 @@ public class Cellarium
 	@EventHandler // used in 1.6.2
 	public void preInit(FMLPreInitializationEvent event) 
 	{
+		//Block Creation
+		//Create Void Block
+		blockVoid = new BlockVoid(4000, Material.ground);
+		//End Block Creation
 		
 		// Stub Method
 	}
@@ -72,9 +79,10 @@ public class Cellarium
 		//Sets name for Custom Tab
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabCellarium", "en_US", "Cellarium");
 		
-		//void block 
-		blockVoid = new BlockVoid(4000, Material.ground).setUnlocalizedName("voidblock");
-		registerBlock(blockVoid, blockVoid.getUnlocalizedName(), "Block O Void");
+		//Block Registration List
+		//void block registration
+		registerBlock(blockVoid, blockVoid.getUnlocalizedName(), "Block O Void", null, 0); 
+		//End Block Registration List
 	}
 
 	@EventHandler // used in 1.6.2
