@@ -49,6 +49,7 @@ public class Cellarium
 	public void load(FMLInitializationEvent event) 
 	{
 		proxy.registerRenderers();
+		//Sets name for Custom Tab
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabCellarium", "en_US", "Cellarium");
 	}
 
