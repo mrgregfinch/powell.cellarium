@@ -1,11 +1,14 @@
 package powell.cellarium;
 
 import powell.cellarium.block.BlockBlood;
+import powell.cellarium.block.BlockBoilingBlood;
 import powell.cellarium.block.BlockTearsOfChildren;
 import powell.cellarium.block.PresenceOfPowell;
 import powell.cellarium.fluids.Blood;
+import powell.cellarium.fluids.BoilingBlood;
 import powell.cellarium.fluids.TearsOfChildren;
 import powell.cellarium.item.BucketOfBlood;
+import powell.cellarium.item.BucketOfBoilingBlood;
 import powell.cellarium.item.BucketOfTears;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -41,11 +44,14 @@ public class Cellarium
 	//Custom Fluids/Blocks/Items
 	public static Fluid tearsOfChildren;
 	public static Fluid blood;
+	public static Fluid boilingBlood;
 	public static BlockFluidClassic blockTearsOfChildren;
 	public static BlockFluidClassic blockBlood;
+	public static BlockFluidClassic blockBoilingBlood;
 	public static Block genericDirt;
 	public static ItemFluidContainer bucketOfTears;
 	public static ItemFluidContainer bucketOfBlood;
+	public static ItemFluidContainer bucketOfBoilingBlood;
 	public static Block presenceOfPowell;
 	//end Custom
 	
@@ -73,10 +79,12 @@ public class Cellarium
 		//Create Fluids First
 		tearsOfChildren = new TearsOfChildren();
 		blood = new Blood();
+		boilingBlood = new BoilingBlood();
 		//end Fluids
 		//create Blocks
 		blockTearsOfChildren = (BlockFluidClassic) new BlockTearsOfChildren(777).setUnlocalizedName("blockTearsOfChildren").setCreativeTab(tabCellarium);
 		blockBlood = (BlockFluidClassic) new BlockBlood(775).setUnlocalizedName("blockBlood").setCreativeTab(tabCellarium);
+		blockBoilingBlood = (BlockFluidClassic) new BlockBoilingBlood(773).setUnlocalizedName("blockBoilingBlood").setCreativeTab(tabCellarium);
 		
 		genericDirt = new GenericBlock(500, Material.ground)
         .setHardness(0.5F).setStepSound(Block.soundGravelFootstep)
@@ -88,6 +96,7 @@ public class Cellarium
 		//create Items
 		bucketOfTears = (ItemFluidContainer) new BucketOfTears(778,777).setUnlocalizedName("bucketOfTears").setCreativeTab(tabCellarium);
 		bucketOfBlood = (ItemFluidContainer) new BucketOfBlood(776,775).setUnlocalizedName("bucketOfBlood").setCreativeTab(tabCellarium);
+		bucketOfBoilingBlood = (ItemFluidContainer) new BucketOfBoilingBlood(774,773).setUnlocalizedName("bucketOfBoilingBlood").setCreativeTab(tabCellarium);
 		//end Items
 	}
 
@@ -103,9 +112,11 @@ public class Cellarium
 		
 		LanguageRegistry.addName(blockTearsOfChildren, "Tears Of Children");
 		LanguageRegistry.addName(blockBlood, "Blood");
+		LanguageRegistry.addName(blockBoilingBlood, "Boiling Blood");
 		
 		GameRegistry.registerBlock(blockTearsOfChildren, "blockTearsOfChildren");
 		GameRegistry.registerBlock(blockBlood, "blockBlood");
+		GameRegistry.registerBlock(blockBoilingBlood,"blockBoilingBlood");
 		
 		LanguageRegistry.addName(genericDirt, "Generic Dirt");
         MinecraftForge.setBlockHarvestLevel(genericDirt, "shovel", 0);
@@ -116,6 +127,9 @@ public class Cellarium
         
         GameRegistry.registerItem(bucketOfBlood, "bucketOfBlood");
         LanguageRegistry.addName(bucketOfBlood, "Bucket Of Blood");
+        
+        GameRegistry.registerItem(bucketOfBoilingBlood, "bucketOfBoilingBlood");
+        LanguageRegistry.addName(bucketOfBoilingBlood, "Bucket of Boiling Blood");
         
         GameRegistry.registerBlock(presenceOfPowell, "presenceOfPowell");
         LanguageRegistry.addName(presenceOfPowell, "Presence of Powell");
