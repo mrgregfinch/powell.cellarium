@@ -31,7 +31,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Cellarium 
 {
-	public static boolean displayclear = true;
+	//public static boolean displayclear = true;
 	//Custom Fluids/Blocks/Items
 	public static Fluid tearsOfChildren;
 	public static BlockFluidClassic blockTearsOfChildren;

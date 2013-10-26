@@ -29,7 +29,7 @@ public class GenericBlock extends Block
 
 	   // }
 	
-     @SideOnly(Side.CLIENT)
+    /* @SideOnly(Side.CLIENT)
      public void registerIcons(IconRegister iconRegister){
     	 
              //block texture
@@ -46,5 +46,5 @@ public class GenericBlock extends Block
                      return clear;
              else
                      return blockIcon;
-     }
+     }*/
 }

@@ -41,7 +41,8 @@ public class PresenceOfPowell extends Block
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister){
+	public void registerIcons(IconRegister iconRegister)
+	{
 
 		//block texture
 		blockIcon = iconRegister.registerIcon("cellarium:cellariumLogo");
@@ -53,10 +54,10 @@ public class PresenceOfPowell extends Block
 	@SideOnly(value = Side.CLIENT)
 	public Icon getBlockTexture(IBlockAccess world, int x, int y, int z, int dir)
 	{
-		if (Cellarium.displayclear)
+		//if (Cellarium.displayclear)
 			return clear;
-		else
-			return blockIcon;
+		//else
+		//	return blockIcon;
 	}
 
 
