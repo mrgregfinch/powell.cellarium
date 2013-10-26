@@ -1,5 +1,6 @@
-package powell.cellarium;
+package powell.cellarium.item;
 
+import powell.cellarium.Cellarium;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;

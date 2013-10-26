@@ -1,4 +1,4 @@
-package powell.cellarium;
+package powell.cellarium.fluids;
 
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;

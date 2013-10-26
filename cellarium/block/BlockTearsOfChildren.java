@@ -1,5 +1,6 @@
-package powell.cellarium;
+package powell.cellarium.block;
 
+import powell.cellarium.Cellarium;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
