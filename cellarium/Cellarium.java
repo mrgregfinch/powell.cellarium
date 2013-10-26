@@ -1,7 +1,9 @@
 package powell.cellarium;
 
+import powell.cellarium.block.BlockBlood;
 import powell.cellarium.block.BlockTearsOfChildren;
 import powell.cellarium.block.PresenceOfPowell;
+import powell.cellarium.fluids.Blood;
 import powell.cellarium.fluids.TearsOfChildren;
 import powell.cellarium.item.BucketOfTears;
 import net.minecraft.block.Block;
@@ -37,7 +39,9 @@ public class Cellarium
 	//public static boolean displayclear = true;
 	//Custom Fluids/Blocks/Items
 	public static Fluid tearsOfChildren;
+	public static Fluid blood;
 	public static BlockFluidClassic blockTearsOfChildren;
+	public static BlockFluidClassic blockBlood;
 	public static Block genericDirt;
 	public static ItemFluidContainer bucketOfTears;
 	public static Block presenceOfPowell;
@@ -66,9 +70,11 @@ public class Cellarium
 		// Stub Method
 		//Create Fluids First
 		tearsOfChildren = new TearsOfChildren();
+		blood = new Blood();
 		//end Fluids
 		//create Blocks
 		blockTearsOfChildren = (BlockFluidClassic) new BlockTearsOfChildren(777).setUnlocalizedName("blockTearsOfChildren").setCreativeTab(tabCellarium);
+		blockBlood = (BlockFluidClassic) new BlockBlood(775).setUnlocalizedName("blockBlood").setCreativeTab(tabCellarium);
 		
 		genericDirt = new GenericBlock(500, Material.ground)
         .setHardness(0.5F).setStepSound(Block.soundGravelFootstep)
@@ -90,8 +96,13 @@ public class Cellarium
 		//Sets name for Custom Tab
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabCellarium", "en_US", "Cellarium");
 		//LanguageRegistry.addName(tearsOfChildren, "Tears of Children"); //seems to cause a NullPointer Exception
+		
+		
 		LanguageRegistry.addName(blockTearsOfChildren, "Tears Of Children");
+		LanguageRegistry.addName(blockBlood, "Blood");
+		
 		GameRegistry.registerBlock(blockTearsOfChildren, "blockTearsOfChildren");
+		GameRegistry.registerBlock(blockBlood, "blockBlood");
 		
 		LanguageRegistry.addName(genericDirt, "Generic Dirt");
         MinecraftForge.setBlockHarvestLevel(genericDirt, "shovel", 0);
