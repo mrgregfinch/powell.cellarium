@@ -5,12 +5,16 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fluids.BlockFluidClassic;
 
 public class BlockBlood extends BlockFluidClassic
 {
+	private Icon iconStill;
+	private Icon iconFlowing;
+	
 	public BlockBlood(int id)
 	{
 		super(id, Cellarium.blood, Material.water);
@@ -21,20 +25,21 @@ public class BlockBlood extends BlockFluidClassic
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int meta)
 	{
-		return Block.waterMoving.getIcon(side, meta);
+		if (side <= 1)
+			return iconStill;
+		else
+			return iconFlowing;
 	}
 	
 	
 	@Override
-	public int colorMultiplier(IBlockAccess iblockaccess, int x, int y, int z)
+	public void registerIcons(IconRegister iconRegister)
 	{
-		return 0x9b1c0f; //HEX color to change water color
+
+		//block texture
+		iconStill = iconRegister.registerIcon("cellarium:blood_still");
+		iconFlowing = iconRegister.registerIcon("cellarium:blood_flow");
+		getFluid().setIcons(iconStill, iconFlowing);
+
 	}
-	
-	/*
-	@Override
-	public int getLightValue(IBlockAccess iBlockAccess, int x, int y, int z)
-	{
-		return maxScaledLight;
-	}*/
 }
