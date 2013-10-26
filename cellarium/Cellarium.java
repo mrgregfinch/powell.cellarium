@@ -28,8 +28,12 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @Mod(modid="CellariumID", name="Cellarium", version="0.0.0")
 @NetworkMod(clientSideRequired=true)
 
+
+
 public class Cellarium 
 {
+	public static boolean displayclear = true;
+	
 	//Custom Fluids/Blocks/Items
 	public static Fluid tearsOfChildren;
 	public static BlockFluidClassic blockTearsOfChildren;
@@ -65,7 +69,7 @@ public class Cellarium
 		blockTearsOfChildren = (BlockFluidClassic) new BlockTearsOfChildren(777).setUnlocalizedName("blockTearsOfChildren").setCreativeTab(tabCellarium);
 		genericDirt = new GenericBlock(500, Material.ground)
         .setHardness(0.5F).setStepSound(Block.soundGravelFootstep)
-        .setUnlocalizedName("genericDirt").setCreativeTab(tabCellarium);
+        .setUnlocalizedName("genericDirt");
 		//end Blocks
 		//create Items
 		bucketOfTears = (ItemFluidContainer) new BucketOfTears(778,777).setUnlocalizedName("bucketOfTears").setCreativeTab(tabCellarium);

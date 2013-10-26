@@ -1,5 +1,6 @@
 package powell.cellarium.block;
 
+import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import powell.cellarium.Cellarium;
@@ -15,18 +16,14 @@ public class BlockVoid extends Block {
 		super(id, material);
 		
 		// Block Attributes
-		setUnlocalizedName("voidblock");
-		setHardness(0.5F);
-		setStepSound(Block.soundGravelFootstep);
-		setCreativeTab(Cellarium.tabCellarium);
+		this.setUnlocalizedName("voidblock");
+		this.setHardness(0.5F);
+		this.setStepSound(Block.soundGravelFootstep);
+		this.setCreativeTab(Cellarium.tabCellarium);
+		
+		setTextureName("cellarium:voidblock");
+		
 	}	
 	
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister){
-		
-		//block texture
-		blockIcon = iconRegister.registerIcon("cellarium" + ":" + "voidblock");
-		
-	}
-
+	
 }
