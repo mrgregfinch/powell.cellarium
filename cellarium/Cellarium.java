@@ -5,6 +5,7 @@ import powell.cellarium.block.BlockTearsOfChildren;
 import powell.cellarium.block.PresenceOfPowell;
 import powell.cellarium.fluids.Blood;
 import powell.cellarium.fluids.TearsOfChildren;
+import powell.cellarium.item.BucketOfBlood;
 import powell.cellarium.item.BucketOfTears;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -44,6 +45,7 @@ public class Cellarium
 	public static BlockFluidClassic blockBlood;
 	public static Block genericDirt;
 	public static ItemFluidContainer bucketOfTears;
+	public static ItemFluidContainer bucketOfBlood;
 	public static Block presenceOfPowell;
 	//end Custom
 	
@@ -85,6 +87,7 @@ public class Cellarium
 		//end Blocks
 		//create Items
 		bucketOfTears = (ItemFluidContainer) new BucketOfTears(778,777).setUnlocalizedName("bucketOfTears").setCreativeTab(tabCellarium);
+		bucketOfBlood = (ItemFluidContainer) new BucketOfBlood(776,775).setUnlocalizedName("bucketOfBlood").setCreativeTab(tabCellarium);
 		//end Items
 	}
 
@@ -110,6 +113,9 @@ public class Cellarium
         
         GameRegistry.registerItem(bucketOfTears, "bucketOfTears");
         LanguageRegistry.addName(bucketOfTears, "Bucket of Tears");
+        
+        GameRegistry.registerItem(bucketOfBlood, "bucketOfBlood");
+        LanguageRegistry.addName(bucketOfBlood, "Bucket Of Blood");
         
         GameRegistry.registerBlock(presenceOfPowell, "presenceOfPowell");
         LanguageRegistry.addName(presenceOfPowell, "Presence of Powell");
