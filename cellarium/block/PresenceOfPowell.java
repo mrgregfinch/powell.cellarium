@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class PresenceOfPowell extends Block
 {
 	private Icon clear;
-	
+
 	public PresenceOfPowell(int id)
 	{
 		super(id, new POPMaterial());
@@ -39,27 +39,27 @@ public class PresenceOfPowell extends Block
 	{
 		return false;
 	}
-	
-	  @SideOnly(Side.CLIENT)
-	     public void registerIcons(IconRegister iconRegister){
-	    	 
-	             //block texture
-	             blockIcon = iconRegister.registerIcon("cellarium:cellariumLogo");
-	             clear = iconRegister.registerIcon("cellarium:presenceOfPowell");
-	             
-	     }
-	     
-	     @Override
-	     @SideOnly(value = Side.CLIENT)
-	     public Icon getBlockTexture(IBlockAccess world, int x, int y, int z, int dir)
-	     {
-	             if (Cellarium.displayclear)
-	                     return clear;
-	             else
-	                     return blockIcon;
-	     }
-	
-	
+
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister iconRegister){
+
+		//block texture
+		blockIcon = iconRegister.registerIcon("cellarium:cellariumLogo");
+		clear = iconRegister.registerIcon("cellarium:presenceOfPowell");
+
+	}
+
+	@Override
+	@SideOnly(value = Side.CLIENT)
+	public Icon getBlockTexture(IBlockAccess world, int x, int y, int z, int dir)
+	{
+		if (Cellarium.displayclear)
+			return clear;
+		else
+			return blockIcon;
+	}
+
+
 	/*
 	@Override
     public boolean renderAsNormalBlock()
@@ -71,6 +71,6 @@ public class PresenceOfPowell extends Block
 	{
 	this.blockIcon = icon.registerIcon("your_mod_id_lower_case:your_icon_texture_name");
 	}
-*/
+	 */
 
 }
