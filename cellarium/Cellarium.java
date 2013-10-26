@@ -1,5 +1,6 @@
 package powell.cellarium;
 
+import powell.cellarium.block.PresenceOfPowell;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -28,17 +29,15 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @Mod(modid="CellariumID", name="Cellarium", version="0.0.0")
 @NetworkMod(clientSideRequired=true)
 
-
-
 public class Cellarium 
 {
 	public static boolean displayclear = true;
-	
 	//Custom Fluids/Blocks/Items
 	public static Fluid tearsOfChildren;
 	public static BlockFluidClassic blockTearsOfChildren;
 	public static Block genericDirt;
 	public static ItemFluidContainer bucketOfTears;
+	public static Block presenceOfPowell;
 	//end Custom
 	
 	// The instance of your mod that Forge uses.
@@ -67,9 +66,13 @@ public class Cellarium
 		//end Fluids
 		//create Blocks
 		blockTearsOfChildren = (BlockFluidClassic) new BlockTearsOfChildren(777).setUnlocalizedName("blockTearsOfChildren").setCreativeTab(tabCellarium);
+		
 		genericDirt = new GenericBlock(500, Material.ground)
         .setHardness(0.5F).setStepSound(Block.soundGravelFootstep)
-        .setUnlocalizedName("genericDirt");
+        .setUnlocalizedName("genericDirt").setCreativeTab(tabCellarium);
+		
+		presenceOfPowell = new PresenceOfPowell(790);
+		
 		//end Blocks
 		//create Items
 		bucketOfTears = (ItemFluidContainer) new BucketOfTears(778,777).setUnlocalizedName("bucketOfTears").setCreativeTab(tabCellarium);
@@ -93,6 +96,9 @@ public class Cellarium
         
         GameRegistry.registerItem(bucketOfTears, "bucketOfTears");
         LanguageRegistry.addName(bucketOfTears, "Bucket of Tears");
+        
+        GameRegistry.registerBlock(presenceOfPowell, "presenceOfPowell");
+        LanguageRegistry.addName(presenceOfPowell, "Presence of Powell");
         //FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(Cellarium.tearsOfChildren.getUnlocalizedName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(bucketOfTears), new ItemStack(Item.bucketEmpty));
 		
 	}
