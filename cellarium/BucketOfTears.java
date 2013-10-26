@@ -24,7 +24,7 @@ public class BucketOfTears extends ItemFluidContainer
 	{
 		super(id);
 		this.isFull = par2;
-		//MinecraftForge.EVENT_BUS.register(this);
+		MinecraftForge.EVENT_BUS.register(this);
 		setTextureName("cellarium:bucketOfTears");
 	}
 
