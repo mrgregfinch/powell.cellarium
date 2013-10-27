@@ -1,5 +1,7 @@
 package powell.cellarium;
 
+import java.util.logging.Logger;
+import java.io.*;
 import powell.cellarium.block.BlockBlood;
 import powell.cellarium.block.BlockBoilingBlood;
 import powell.cellarium.block.BlockTearsOfChildren;
@@ -27,6 +29,7 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.ItemFluidContainer;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler; // used in 1.6.2
 //import cpw.mods.fml.common.Mod.PreInit;    // used in 1.5.2
@@ -47,6 +50,9 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class Cellarium 
 {
 	//public static boolean displayclear = true;
+	
+	public static CellariumConfiguration mainConfiguration;
+	public static final Logger cLog = Logger.getLogger("Cellarium");
 	//Custom Fluids/Blocks/Items
 	public static Fluid tearsOfChildren;
 	public static Fluid blood;
@@ -91,6 +97,38 @@ public class Cellarium
 	//@PreInit    // used in 1.5.2
 	public void preInit(FMLPreInitializationEvent event) 
 	{
+		
+		cLog.setParent(FMLLog.getLogger());
+		cLog.info("Starting Cellarium " /*+ add verison info here in future*/);
+		cLog.info("Copyright (c) Danickar, 2013");
+		
+		mainConfiguration = new CellariumConfiguration(new File(event.getModConfigurationDirectory(), "Cellarium/main.conf"));
+		try 
+		{
+			mainConfiguration.load();
+		
+		
+		
+		}
+		finally 
+		{
+			if (mainConfiguration.hasChanged()) 
+			{
+				mainConfiguration.save();
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// Stub Method
 		//Create Fluids First
 		tearsOfChildren = new TearsOfChildren();
