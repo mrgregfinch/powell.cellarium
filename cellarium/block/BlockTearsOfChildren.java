@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
 
 public class BlockTearsOfChildren extends BlockFluidClassic
@@ -36,4 +37,18 @@ public class BlockTearsOfChildren extends BlockFluidClassic
 	{
 		return maxScaledLight;
 	}
+	
+
+	@Override
+	protected void flowIntoBlock(World world, int x, int y, int z, int meta)
+    {
+        if (meta < 0) return;
+        if (displaceIfPossible(world, x, y, z))
+        {
+        	if(world.getBlockId(x, y, z) == Cellarium.blockBoilingBlood.blockID && world.getBlockMetadata(x, y, z) == 0)
+        		world.setBlock(x, y, z, Cellarium.bloodStone.blockID);
+        	else
+        		world.setBlock(x, y, z, this.blockID, meta, 3);
+        }
+    }
 }

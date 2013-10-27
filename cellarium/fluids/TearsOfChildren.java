@@ -9,7 +9,7 @@ public class TearsOfChildren extends Fluid
 	{
 		super("TearsOfChildren");
 		
-		setDensity(10);
+		setDensity(11);
 		setViscosity(1000);
 		setLuminosity(15);//makes liquid give off light
 		setUnlocalizedName("tearsOfChildren");
