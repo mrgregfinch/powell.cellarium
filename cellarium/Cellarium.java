@@ -3,10 +3,13 @@ package powell.cellarium;
 import powell.cellarium.block.BlockBlood;
 import powell.cellarium.block.BlockBoilingBlood;
 import powell.cellarium.block.BlockTearsOfChildren;
+import powell.cellarium.block.BloodOre;
+import powell.cellarium.block.BloodStone;
 import powell.cellarium.block.PresenceOfPowell;
 import powell.cellarium.fluids.Blood;
 import powell.cellarium.fluids.BoilingBlood;
 import powell.cellarium.fluids.TearsOfChildren;
+import powell.cellarium.item.BloodIngot;
 import powell.cellarium.item.BucketOfBlood;
 import powell.cellarium.item.BucketOfBoilingBlood;
 import powell.cellarium.item.BucketOfTears;
@@ -45,14 +48,22 @@ public class Cellarium
 	public static Fluid tearsOfChildren;
 	public static Fluid blood;
 	public static Fluid boilingBlood;
+	
 	public static BlockFluidClassic blockTearsOfChildren;
 	public static BlockFluidClassic blockBlood;
 	public static BlockFluidClassic blockBoilingBlood;
+	
 	public static Block genericDirt;
+	public static Block bloodStone;
+	public static Block bloodOre;
+	public static Block presenceOfPowell;
+	
 	public static ItemFluidContainer bucketOfTears;
 	public static ItemFluidContainer bucketOfBlood;
 	public static ItemFluidContainer bucketOfBoilingBlood;
-	public static Block presenceOfPowell;
+	
+	public static Item bloodIngot;
+	
 	//end Custom
 	
 	// The instance of your mod that Forge uses.
@@ -92,11 +103,16 @@ public class Cellarium
 		
 		presenceOfPowell = new PresenceOfPowell(790);
 		
+		bloodStone = new BloodStone(791);
+		bloodOre = new BloodOre(792);
+		
 		//end Blocks
 		//create Items
 		bucketOfTears = (ItemFluidContainer) new BucketOfTears(778,777).setUnlocalizedName("bucketOfTears").setCreativeTab(tabCellarium);
 		bucketOfBlood = (ItemFluidContainer) new BucketOfBlood(776,775).setUnlocalizedName("bucketOfBlood").setCreativeTab(tabCellarium);
 		bucketOfBoilingBlood = (ItemFluidContainer) new BucketOfBoilingBlood(774,773).setUnlocalizedName("bucketOfBoilingBlood").setCreativeTab(tabCellarium);
+		
+		bloodIngot = new BloodIngot(7777);
 		//end Items
 	}
 
@@ -133,6 +149,18 @@ public class Cellarium
         
         GameRegistry.registerBlock(presenceOfPowell, "presenceOfPowell");
         LanguageRegistry.addName(presenceOfPowell, "Presence of Powell");
+        
+        GameRegistry.registerBlock(bloodStone,"bloodStone");
+        LanguageRegistry.addName(bloodStone, "Blood Stone");
+        MinecraftForge.setBlockHarvestLevel(bloodStone, "pickaxe", 3);
+        
+        GameRegistry.registerBlock(bloodOre, "bloodOre");
+        LanguageRegistry.addName(bloodOre, "Blood Ore");
+        MinecraftForge.setBlockHarvestLevel(bloodOre, "pickaxe", 3);
+        
+        GameRegistry.registerItem(bloodIngot, "bloodIngot");
+        LanguageRegistry.addName(bloodIngot, "Blood Ingot");
+        
         //FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(Cellarium.tearsOfChildren.getUnlocalizedName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(bucketOfTears), new ItemStack(Item.bucketEmpty));
 		
 	}
