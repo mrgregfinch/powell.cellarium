@@ -14,6 +14,7 @@ import powell.cellarium.item.BucketOfBlood;
 import powell.cellarium.item.BucketOfBoilingBlood;
 import powell.cellarium.item.BucketOfTears;
 import powell.cellarium.item.LogoItem;
+import powell.cellarium.item.TheReaper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -66,6 +67,7 @@ public class Cellarium
 	
 	public static Item bloodIngot;
 	public static Item logoItem;
+	public static Item theReaper;
 	
 	//end Custom
 	
@@ -117,6 +119,7 @@ public class Cellarium
 		
 		bloodIngot = new BloodIngot(7777);
 		logoItem = new LogoItem(7778);
+		theReaper = new TheReaper(7800);
 		//end Items
 	}
 
@@ -168,6 +171,19 @@ public class Cellarium
         
         GameRegistry.registerItem(logoItem, "logoItem");
         LanguageRegistry.addName(logoItem, "Logo Item");
+        
+        GameRegistry.registerItem(theReaper, "theReaper");
+        LanguageRegistry.addName(theReaper, "The Reaper");
+        
+        
+        
+        //Recipe Section
+        ItemStack obsidianStack = new ItemStack(Block.obsidian);
+        ItemStack bloodIngotStack = new ItemStack(bloodIngot);
+
+        GameRegistry.addRecipe(new ItemStack(theReaper), " y ", "xyx", " x ",
+                'x', obsidianStack, 'y', bloodIngotStack);
+        //end Recipes
         
         //FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(Cellarium.tearsOfChildren.getUnlocalizedName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(bucketOfTears), new ItemStack(Item.bucketEmpty));
 		
