@@ -18,6 +18,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
@@ -160,6 +161,7 @@ public class Cellarium
         
         GameRegistry.registerItem(bloodIngot, "bloodIngot");
         LanguageRegistry.addName(bloodIngot, "Blood Ingot");
+        FurnaceRecipes.smelting().addSmelting(bloodOre.blockID, new ItemStack(bloodIngot), 1.0f);
         
         //FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(Cellarium.tearsOfChildren.getUnlocalizedName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(bucketOfTears), new ItemStack(Item.bucketEmpty));
 		
