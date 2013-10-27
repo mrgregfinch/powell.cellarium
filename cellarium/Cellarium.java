@@ -13,6 +13,7 @@ import powell.cellarium.item.BloodIngot;
 import powell.cellarium.item.BucketOfBlood;
 import powell.cellarium.item.BucketOfBoilingBlood;
 import powell.cellarium.item.BucketOfTears;
+import powell.cellarium.item.LogoItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -64,6 +65,7 @@ public class Cellarium
 	public static ItemFluidContainer bucketOfBoilingBlood;
 	
 	public static Item bloodIngot;
+	public static Item logoItem;
 	
 	//end Custom
 	
@@ -74,7 +76,7 @@ public class Cellarium
 	//trying custom tab
 	public static CreativeTabs tabCellarium = new CreativeTabs("tabCellarium") {
         public ItemStack getIconItemStack() {
-                return new ItemStack(Item.eyeOfEnder, 1, 0);
+                return new ItemStack(logoItem, 1, 0);
         }
 };
 	//end tab
@@ -114,6 +116,7 @@ public class Cellarium
 		bucketOfBoilingBlood = (ItemFluidContainer) new BucketOfBoilingBlood(774,773).setUnlocalizedName("bucketOfBoilingBlood").setCreativeTab(tabCellarium);
 		
 		bloodIngot = new BloodIngot(7777);
+		logoItem = new LogoItem(7778);
 		//end Items
 	}
 
@@ -162,6 +165,9 @@ public class Cellarium
         GameRegistry.registerItem(bloodIngot, "bloodIngot");
         LanguageRegistry.addName(bloodIngot, "Blood Ingot");
         FurnaceRecipes.smelting().addSmelting(bloodOre.blockID, new ItemStack(bloodIngot), 1.0f);
+        
+        GameRegistry.registerItem(logoItem, "logoItem");
+        LanguageRegistry.addName(logoItem, "Logo Item");
         
         //FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(Cellarium.tearsOfChildren.getUnlocalizedName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(bucketOfTears), new ItemStack(Item.bucketEmpty));
 		
