@@ -16,6 +16,8 @@ public class BlockTearsOfChildren extends BlockFluidClassic
 	{
 		super(id, Cellarium.tearsOfChildren, Material.water);
 		Cellarium.tearsOfChildren.setBlockID(id);
+		setUnlocalizedName("blockTearsOfChildren");
+		setCreativeTab(Cellarium.tabCellarium);
 	}
 	
 	@Override

@@ -20,6 +20,8 @@ public class BlockBlood extends BlockFluidClassic
 	{
 		super(id, Cellarium.blood, Material.water);
 		Cellarium.blood.setBlockID(id);
+		setUnlocalizedName("blockBlood");
+		setCreativeTab(Cellarium.tabCellarium);
 	}
 	
 	@Override

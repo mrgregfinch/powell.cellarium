@@ -2,6 +2,7 @@ package powell.cellarium;
 
 import java.util.logging.Logger;
 import java.io.*;
+
 import powell.cellarium.block.BlockBlood;
 import powell.cellarium.block.BlockBoilingBlood;
 import powell.cellarium.block.BlockTearsOfChildren;
@@ -24,6 +25,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.Property;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
@@ -106,8 +108,56 @@ public class Cellarium
 		try 
 		{
 			mainConfiguration.load();
-		
-		
+			//Property woodenGearId = BuildCraftCore.mainConfiguration.getItem("woodenGearItem.id", DefaultProps.WOODEN_GEAR_ID);
+			Property blockTearsOfChildrenId = mainConfiguration.getBlock("blockTearsOfChildren.id", DefaultProps.BLOCK_TEARS_OF_CHILDREN);
+			Property blockBloodId = mainConfiguration.getBlock("blockBlood.id", DefaultProps.BLOCK_BLOOD);
+			Property blockBoilingBloodId = mainConfiguration.getBlock("blockBoilingBlood.id", DefaultProps.BLOCK_BOILING_BLOOD);
+			
+			Property bloodStoneId = mainConfiguration.getBlock("bloodStone.id", DefaultProps.BLOOD_STONE);
+			Property bloodOreId = mainConfiguration.getBlock("bloodOre.id", DefaultProps.BLOOD_ORE);
+			Property presenceOfPowellId = mainConfiguration.getBlock("presenceOfPowell.id", DefaultProps.PRESENCE_OF_POWELL);
+			
+			Property bucketOfTearsId = mainConfiguration.getItem("bucketOfTears.id", DefaultProps.BUCKET_OF_TEARS);
+			Property bucketOfBloodId = mainConfiguration.getItem("bucketOfBlood.id", DefaultProps.BUCKET_OF_BLOOD);
+			Property bucketOfBoilingBloodId = mainConfiguration.getItem("bucketOfBoilingBlood.id", DefaultProps.BUCKET_OF_BOILING_BLOOD);
+			
+			Property bloodIngotId = mainConfiguration.getItem("bloodIngot.id", DefaultProps.BLOOD_INGOT);
+			Property logoItemId = mainConfiguration.getItem("logoItem.id", DefaultProps.LOGO_ITEM);
+			Property theReaperId = mainConfiguration.getItem("theReaper.id", DefaultProps.THE_REAPER);
+			
+			
+			
+			//Create Fluids First
+			tearsOfChildren = new TearsOfChildren();
+			blood = new Blood();
+			boilingBlood = new BoilingBlood();
+			//end Fluids
+			
+			
+			//create Blocks
+			blockTearsOfChildren = new BlockTearsOfChildren(blockTearsOfChildrenId.getInt());
+			blockBlood = new BlockBlood(blockBloodId.getInt());
+			blockBoilingBlood = new BlockBoilingBlood(blockBoilingBloodId.getInt());
+			
+			genericDirt = new GenericBlock(500, Material.ground)
+	        .setHardness(0.5F).setStepSound(Block.soundGravelFootstep)
+	        .setUnlocalizedName("genericDirt").setCreativeTab(tabCellarium);
+			
+			presenceOfPowell = new PresenceOfPowell(presenceOfPowellId.getInt());
+			
+			bloodStone = new BloodStone(bloodStoneId.getInt());
+			bloodOre = new BloodOre(bloodOreId.getInt());
+			
+			//end Blocks
+			//create Items
+			bucketOfTears = new BucketOfTears(bucketOfTearsId.getInt(),blockTearsOfChildrenId.getInt());
+			bucketOfBlood = new BucketOfBlood(bucketOfBloodId.getInt(),blockBloodId.getInt());
+			bucketOfBoilingBlood = new BucketOfBoilingBlood(bucketOfBoilingBloodId.getInt(),blockBoilingBloodId.getInt());
+			
+			bloodIngot = new BloodIngot(bloodIngotId.getInt());
+			logoItem = new LogoItem(logoItemId.getInt());
+			theReaper = new TheReaper(theReaperId.getInt());
+			//end Items
 		
 		}
 		finally 
@@ -130,35 +180,7 @@ public class Cellarium
 		
 		
 		// Stub Method
-		//Create Fluids First
-		tearsOfChildren = new TearsOfChildren();
-		blood = new Blood();
-		boilingBlood = new BoilingBlood();
-		//end Fluids
-		//create Blocks
-		blockTearsOfChildren = (BlockFluidClassic) new BlockTearsOfChildren(777).setUnlocalizedName("blockTearsOfChildren").setCreativeTab(tabCellarium);
-		blockBlood = (BlockFluidClassic) new BlockBlood(775).setUnlocalizedName("blockBlood").setCreativeTab(tabCellarium);
-		blockBoilingBlood = (BlockFluidClassic) new BlockBoilingBlood(773).setUnlocalizedName("blockBoilingBlood").setCreativeTab(tabCellarium);
 		
-		genericDirt = new GenericBlock(500, Material.ground)
-        .setHardness(0.5F).setStepSound(Block.soundGravelFootstep)
-        .setUnlocalizedName("genericDirt").setCreativeTab(tabCellarium);
-		
-		presenceOfPowell = new PresenceOfPowell(790);
-		
-		bloodStone = new BloodStone(791);
-		bloodOre = new BloodOre(792);
-		
-		//end Blocks
-		//create Items
-		bucketOfTears = (ItemFluidContainer) new BucketOfTears(778,777).setUnlocalizedName("bucketOfTears").setCreativeTab(tabCellarium);
-		bucketOfBlood = (ItemFluidContainer) new BucketOfBlood(776,775).setUnlocalizedName("bucketOfBlood").setCreativeTab(tabCellarium);
-		bucketOfBoilingBlood = (ItemFluidContainer) new BucketOfBoilingBlood(774,773).setUnlocalizedName("bucketOfBoilingBlood").setCreativeTab(tabCellarium);
-		
-		bloodIngot = new BloodIngot(7777);
-		logoItem = new LogoItem(7778);
-		theReaper = new TheReaper(7800);
-		//end Items
 	}
 
 	@EventHandler // used in 1.6.2

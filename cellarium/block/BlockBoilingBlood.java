@@ -19,6 +19,8 @@ public class BlockBoilingBlood extends BlockFluidClassic
 	{
 		super(id, Cellarium.boilingBlood, Material.lava);
 		Cellarium.boilingBlood.setBlockID(id);
+		setUnlocalizedName("blockBoilingBlood");
+		setCreativeTab(Cellarium.tabCellarium);
 	}
 	
 	@Override

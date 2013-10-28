@@ -27,6 +27,8 @@ public class BucketOfBoilingBlood extends ItemFluidContainer
 		this.isFull = par2;
 		MinecraftForge.EVENT_BUS.register(this);
 		setTextureName("cellarium:bucketOfBoilingBlood");
+		setUnlocalizedName("bucketOfBoilingBlood");
+		setCreativeTab(Cellarium.tabCellarium);
 	}
 
 	@Override
