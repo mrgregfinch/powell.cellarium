@@ -240,9 +240,10 @@ public class Cellarium
         //Recipe Section
         ItemStack obsidianStack = new ItemStack(Block.obsidian);
         ItemStack bloodIngotStack = new ItemStack(bloodIngot);
+        ItemStack boneStack = new ItemStack(Item.bone);
 
-        GameRegistry.addRecipe(new ItemStack(theReaper), " y ", "xyx", " x ",
-                'x', obsidianStack, 'y', bloodIngotStack);
+        GameRegistry.addRecipe(new ItemStack(theReaper), " y ", "wyw", " x ",
+                'x', obsidianStack, 'y', bloodIngotStack, 'w', boneStack);
         //end Recipes
         
         //FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(Cellarium.tearsOfChildren.getUnlocalizedName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(bucketOfTears), new ItemStack(Item.bucketEmpty));
