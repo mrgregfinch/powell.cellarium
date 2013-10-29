@@ -3,6 +3,7 @@ package powell.cellarium;
 public class DefaultProps
 {
 	public static int PRESENCE_OF_POWELL = 790;
+	public static int VISION_OF_POWELL_BLOCK = 789;
 	public static int BLOOD_STONE = 791;
 	public static int BLOOD_ORE = 792;
 	public static int BLOOD_INGOT = 7777;

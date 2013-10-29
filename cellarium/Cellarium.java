@@ -3,21 +3,9 @@ package powell.cellarium;
 import java.util.logging.Logger;
 import java.io.*;
 
-import powell.cellarium.block.BlockBlood;
-import powell.cellarium.block.BlockBoilingBlood;
-import powell.cellarium.block.BlockTearsOfChildren;
-import powell.cellarium.block.BloodOre;
-import powell.cellarium.block.BloodStone;
-import powell.cellarium.block.PresenceOfPowell;
-import powell.cellarium.fluids.Blood;
-import powell.cellarium.fluids.BoilingBlood;
-import powell.cellarium.fluids.TearsOfChildren;
-import powell.cellarium.item.BloodIngot;
-import powell.cellarium.item.BucketOfBlood;
-import powell.cellarium.item.BucketOfBoilingBlood;
-import powell.cellarium.item.BucketOfTears;
-import powell.cellarium.item.LogoItem;
-import powell.cellarium.item.TheReaper;
+import powell.cellarium.block.*;
+import powell.cellarium.fluids.*;
+import powell.cellarium.item.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -68,6 +56,7 @@ public class Cellarium
 	public static Block bloodStone;
 	public static Block bloodOre;
 	public static Block presenceOfPowell;
+	public static Block visionOfPowellBlock;
 	
 	public static ItemFluidContainer bucketOfTears;
 	public static ItemFluidContainer bucketOfBlood;
@@ -116,6 +105,7 @@ public class Cellarium
 			Property bloodStoneId = mainConfiguration.getBlock("bloodStone.id", DefaultProps.BLOOD_STONE);
 			Property bloodOreId = mainConfiguration.getBlock("bloodOre.id", DefaultProps.BLOOD_ORE);
 			Property presenceOfPowellId = mainConfiguration.getBlock("presenceOfPowell.id", DefaultProps.PRESENCE_OF_POWELL);
+			Property visionOfPowellBlockId = mainConfiguration.getBlock("visionOfPowellBlock.id", DefaultProps.VISION_OF_POWELL_BLOCK);
 			
 			Property bucketOfTearsId = mainConfiguration.getItem("bucketOfTears.id", DefaultProps.BUCKET_OF_TEARS);
 			Property bucketOfBloodId = mainConfiguration.getItem("bucketOfBlood.id", DefaultProps.BUCKET_OF_BLOOD);
@@ -144,6 +134,7 @@ public class Cellarium
 	        .setUnlocalizedName("genericDirt").setCreativeTab(tabCellarium);
 			
 			presenceOfPowell = new PresenceOfPowell(presenceOfPowellId.getInt());
+			visionOfPowellBlock = new VisionOfPowellBlock(visionOfPowellBlockId.getInt());
 			
 			bloodStone = new BloodStone(bloodStoneId.getInt());
 			bloodOre = new BloodOre(bloodOreId.getInt());
@@ -216,6 +207,9 @@ public class Cellarium
         
         GameRegistry.registerBlock(presenceOfPowell, "presenceOfPowell");
         LanguageRegistry.addName(presenceOfPowell, "Presence of Powell");
+        
+        GameRegistry.registerBlock(visionOfPowellBlock, "visionOfPowellBlock");
+        LanguageRegistry.addName(visionOfPowellBlock, "Vision Of Powell - Block");
         
         GameRegistry.registerBlock(bloodStone,"bloodStone");
         LanguageRegistry.addName(bloodStone, "Blood Stone");
