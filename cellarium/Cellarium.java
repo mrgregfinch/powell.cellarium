@@ -34,8 +34,8 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid="CellariumID", name="Cellarium", version="0.0.0")
-@NetworkMod(clientSideRequired=true)
+@Mod(modid=ModInfo.ID, name=ModInfo.NAME, version=ModInfo.VERSION, dependencies = "after:guilib")
+@NetworkMod(channels = {ModInfo.CHANNEL}, clientSideRequired=true)
 
 public class Cellarium 
 {
@@ -45,7 +45,7 @@ public class Cellarium
 	public static final Logger cLog = Logger.getLogger("Cellarium");
 	//Custom Fluids/Blocks/Items
 	public static Fluid tearsOfChildren;
-	public static Fluid blood;
+	public static Fluid blood; 
 	public static Fluid boilingBlood;
 	
 	public static BlockFluidClassic blockTearsOfChildren;
@@ -69,7 +69,7 @@ public class Cellarium
 	//end Custom
 	
 	// The instance of your mod that Forge uses.
-	@Instance(value = "CellariumID")
+	@Instance(value = ModInfo.ID)
 	public static Cellarium instance;
 	
 	//trying custom tab
