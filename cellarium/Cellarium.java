@@ -1,11 +1,8 @@
 package powell.cellarium;
 
+import java.io.File;
 import java.util.logging.Logger;
-import java.io.*;
 
-import powell.cellarium.block.*;
-import powell.cellarium.fluids.*;
-import powell.cellarium.item.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -16,9 +13,24 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.Property;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.ItemFluidContainer;
+import powell.cellarium.armor.Armors;
+import powell.cellarium.block.BlockBlood;
+import powell.cellarium.block.BlockBoilingBlood;
+import powell.cellarium.block.BlockTearsOfChildren;
+import powell.cellarium.block.BloodOre;
+import powell.cellarium.block.BloodStone;
+import powell.cellarium.block.PresenceOfPowell;
+import powell.cellarium.block.VisionOfPowellBlock;
+import powell.cellarium.fluids.Blood;
+import powell.cellarium.fluids.BoilingBlood;
+import powell.cellarium.fluids.TearsOfChildren;
+import powell.cellarium.item.BloodIngot;
+import powell.cellarium.item.BucketOfBlood;
+import powell.cellarium.item.BucketOfBoilingBlood;
+import powell.cellarium.item.BucketOfTears;
+import powell.cellarium.item.LogoItem;
+import powell.cellarium.item.TheReaper;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler; // used in 1.6.2
@@ -65,6 +77,8 @@ public class Cellarium
 	public static Item bloodIngot;
 	public static Item logoItem;
 	public static Item theReaper;
+	
+
 	
 	//end Custom
 	
@@ -149,6 +163,11 @@ public class Cellarium
 			logoItem = new LogoItem(logoItemId.getInt());
 			theReaper = new TheReaper(theReaperId.getInt());
 			//end Items
+			
+			
+			//armor
+			Armors.init(mainConfiguration);
+			//end armor
 		
 		}
 		finally 
