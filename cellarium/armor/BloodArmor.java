@@ -37,11 +37,11 @@ public class BloodArmor extends ItemArmor
     public String getArmorTexture (ItemStack stack, Entity entity, int slot, int layer)
     {
         if (slot == 2)
-            return "/assets/cellarium/textures/armor/" + armorTexture + "_2.png";
+            return "cellarium:textures/models/armor/" + armorTexture + "_layer_2.png";
         else
-            return "/assets/cellarium/textures/armor/" + armorTexture + "_1.png";
+            return "cellarium:textures/models/armor/" + armorTexture + "_layer_1.png";
     }
-
+/*
     public void getSubItems (int id, CreativeTabs tab, List list)
     {
         switch (armorType)
@@ -59,5 +59,5 @@ public class BloodArmor extends ItemArmor
             list.add(new ItemStack(Armors.bloodBoots));
             break;
         }
-    }
+    }*/
 }

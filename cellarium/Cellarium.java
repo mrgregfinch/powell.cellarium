@@ -248,6 +248,7 @@ public class Cellarium
         GameRegistry.registerItem(theReaper, "theReaper");
         LanguageRegistry.addName(theReaper, "The Reaper");
         
+       // GameRegistry.registerItem(Armors.bloodChest, "bloodChest");
         
         
         //Recipe Section
