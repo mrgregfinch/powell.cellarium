@@ -29,6 +29,7 @@ import powell.cellarium.item.BloodIngot;
 import powell.cellarium.item.BucketOfBlood;
 import powell.cellarium.item.BucketOfBoilingBlood;
 import powell.cellarium.item.BucketOfTears;
+import powell.cellarium.item.Items;
 import powell.cellarium.item.LogoItem;
 import powell.cellarium.item.TheReaper;
 import cpw.mods.fml.common.FMLLog;
@@ -155,6 +156,7 @@ public class Cellarium
 			
 			//end Blocks
 			//create Items
+			Items.init(mainConfiguration);
 			bucketOfTears = new BucketOfTears(bucketOfTearsId.getInt(),blockTearsOfChildrenId.getInt());
 			bucketOfBlood = new BucketOfBlood(bucketOfBloodId.getInt(),blockBloodId.getInt());
 			bucketOfBoilingBlood = new BucketOfBoilingBlood(bucketOfBoilingBloodId.getInt(),blockBoilingBloodId.getInt());
@@ -248,10 +250,13 @@ public class Cellarium
         GameRegistry.registerItem(theReaper, "theReaper");
         LanguageRegistry.addName(theReaper, "The Reaper");
         
+        Items.load();
+        
        // GameRegistry.registerItem(Armors.bloodChest, "bloodChest");
         
         
         //Recipe Section
+        Items.createRecipes();
         ItemStack obsidianStack = new ItemStack(Block.obsidian);
         ItemStack bloodIngotStack = new ItemStack(bloodIngot);
         ItemStack boneStack = new ItemStack(Item.bone);
