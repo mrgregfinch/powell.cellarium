@@ -18,6 +18,9 @@ public class DefaultProps
 	public static int REAPER_HILT = 7800;
 	public static int REAPER_BLADE = 7801;
 	public static int THE_REAPER = 7802;
+	public static int SORROWFEL_HILT = 7803;
+	public static int SORROWFEL_BLADE = 7804;
+	public static int SORROWFEL = 7805;
 	public static int LOGO_ITEM = 778;
 	public static int BLOOD_HELMET = 7900;
 	public static int BLOOD_CHEST = 7901;

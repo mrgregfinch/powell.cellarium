@@ -77,7 +77,7 @@ public class Cellarium
 	
 	public static Item bloodIngot;
 	public static Item logoItem;
-	public static Item theReaper;
+	
 	
 
 	
@@ -128,7 +128,7 @@ public class Cellarium
 			
 			Property bloodIngotId = mainConfiguration.getItem("bloodIngot.id", DefaultProps.BLOOD_INGOT);
 			Property logoItemId = mainConfiguration.getItem("logoItem.id", DefaultProps.LOGO_ITEM);
-			Property theReaperId = mainConfiguration.getItem("theReaper.id", DefaultProps.THE_REAPER);
+			
 			
 			
 			
@@ -163,7 +163,7 @@ public class Cellarium
 			
 			bloodIngot = new BloodIngot(bloodIngotId.getInt());
 			logoItem = new LogoItem(logoItemId.getInt());
-			theReaper = new TheReaper(theReaperId.getInt());
+			
 			//end Items
 			
 			
@@ -247,8 +247,7 @@ public class Cellarium
         GameRegistry.registerItem(logoItem, "logoItem");
         LanguageRegistry.addName(logoItem, "Logo Item");
         
-        GameRegistry.registerItem(theReaper, "theReaper");
-        LanguageRegistry.addName(theReaper, "The Reaper");
+        
         
         Items.load();
         
@@ -257,12 +256,11 @@ public class Cellarium
         
         //Recipe Section
         Items.createRecipes();
-        ItemStack obsidianStack = new ItemStack(Block.obsidian);
+      /*  ItemStack obsidianStack = new ItemStack(Block.obsidian);
         ItemStack bloodIngotStack = new ItemStack(bloodIngot);
-        ItemStack boneStack = new ItemStack(Item.bone);
+        ItemStack boneStack = new ItemStack(Item.bone);*/
 
-        GameRegistry.addRecipe(new ItemStack(theReaper), " y ", "wyw", " x ",
-                'x', obsidianStack, 'y', bloodIngotStack, 'w', boneStack);
+        
         //end Recipes
         
         //FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(Cellarium.tearsOfChildren.getUnlocalizedName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(bucketOfTears), new ItemStack(Item.bucketEmpty));
