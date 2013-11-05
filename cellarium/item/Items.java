@@ -18,6 +18,7 @@ public class Items
 	public static Item sorrowfelHilt;
 	public static Item sorrowfelBlade;
 	public static Item sorrowfel;
+	public static Item bloodAndSorrow;
 	public static Item ingotFrame;
 	public static Item tearsIngot;
 	
@@ -37,6 +38,12 @@ public class Items
 		
 		Property sorrowfelBladeId = main.getItem("sorrowfelBlade.id", DefaultProps.SORROWFEL_BLADE);
 		sorrowfelBlade = new SorrowfelBlade(sorrowfelBladeId.getInt());
+		
+		Property sorrowfelId = main.getItem("sorrowfel.id", DefaultProps.SORROWFEL);
+		sorrowfel = new Sorrowfel(sorrowfelId.getInt());
+		
+		Property bloodAndSorrowId = main.getItem("bloodAndSorrow.id", DefaultProps.BLOOD_AND_SORROW);
+		bloodAndSorrow = new BloodAndSorrow(bloodAndSorrowId.getInt());
 		
 		Property ingotFrameId = main.getItem("ingotFrame.id", DefaultProps.INGOT_FRAME);
 		ingotFrame = new IngotFrame(ingotFrameId.getInt());
@@ -61,6 +68,12 @@ public class Items
         
         GameRegistry.registerItem(sorrowfelBlade, "sorrowfelBlade");
         LanguageRegistry.addName(sorrowfelBlade, "The Blade of Sorrowfel");
+        
+        GameRegistry.registerItem(sorrowfel, "sorrowfel");
+        LanguageRegistry.addName(sorrowfel, "Sorrowfel");
+        
+        GameRegistry.registerItem(bloodAndSorrow, "bloodAndSorrow");
+        LanguageRegistry.addName(bloodAndSorrow, "Blood and Sorrow");
         
         GameRegistry.registerItem(ingotFrame, "ingotFrame");
         LanguageRegistry.addName(ingotFrame, "Obsidian Ingot Frame");
@@ -91,9 +104,19 @@ public class Items
 	    		 											"x  ",
 	                'x', new ItemStack(reaperHilt), 'y', new ItemStack(reaperBlade));
 	     
+	     GameRegistry.addRecipe(new ItemStack(reaperHilt), 	"w  ",
+	    		 											" w ", 
+	    		 											"x w",
+					'x', new ItemStack(Block.glowStone), 'w', new ItemStack(Block.glass));
+	     
 	     GameRegistry.addRecipe(new ItemStack(sorrowfelBlade),	"  x",
 	    		 												" x ", 
 	    		 												"   ",
 	    		 	'x', tearsIngotStack);
+	     
+	     GameRegistry.addRecipe(new ItemStack(sorrowfel), 	"  y",
+	    		 											" y ", 
+	    		 											"x  ",
+	    		 	'x', new ItemStack(sorrowfelHilt), 'y', new ItemStack(sorrowfelBlade));
 	}
 }

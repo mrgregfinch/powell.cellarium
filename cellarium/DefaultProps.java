@@ -21,6 +21,7 @@ public class DefaultProps
 	public static int SORROWFEL_HILT = 7803;
 	public static int SORROWFEL_BLADE = 7804;
 	public static int SORROWFEL = 7805;
+	public static int BLOOD_AND_SORROW = 7806;
 	public static int LOGO_ITEM = 778;
 	public static int BLOOD_HELMET = 7900;
 	public static int BLOOD_CHEST = 7901;

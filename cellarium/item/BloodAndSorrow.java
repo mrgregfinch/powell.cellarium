@@ -17,12 +17,12 @@ import com.google.common.collect.Multimap;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Sorrowfel extends Item
+public class BloodAndSorrow extends Item
 {
 	private float weaponDamage;
    // private final EnumToolMaterial toolMaterial;
 
-    public Sorrowfel(int par1)
+    public BloodAndSorrow(int par1)
     {
         super(par1);
        // this.toolMaterial = par2EnumToolMaterial;
@@ -30,8 +30,8 @@ public class Sorrowfel extends Item
         this.setMaxDamage(2500);
         this.setCreativeTab(Cellarium.tabCellarium);
         this.weaponDamage = 10.0F;
-        setUnlocalizedName("sorrowfel");
-        setTextureName("cellarium:sorrowfel");
+        setUnlocalizedName("bloodAndSorrow");
+        setTextureName("cellarium:bloodAndSorrow");
     }
 
     public float func_82803_g()
