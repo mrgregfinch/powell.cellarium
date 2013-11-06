@@ -8,6 +8,7 @@ import net.minecraftforge.common.DimensionManager;
 import powell.rasterland.block.Blocks;
 import powell.rasterland.item.Items;
 import powell.rasterland.network.CommonProxy;
+import powell.rasterland.world.WorldProviderVoid;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -16,6 +17,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid=ModInfo.ID, name=ModInfo.NAME, version=ModInfo.VERSION)
 @NetworkMod(channels = {ModInfo.CHANNEL}, clientSideRequired=true)
@@ -54,6 +56,8 @@ public class Rasterland
 	{
 		Blocks.load();
 		Items.load();
+		
+		LanguageRegistry.addName(tabRasterland,"Rasterland");
 		
 		DimensionManager.registerProviderType(DIMENSIONID, WorldProviderVoid.class, false);
 		DimensionManager.registerDimension(DIMENSIONID, DIMENSIONID);
