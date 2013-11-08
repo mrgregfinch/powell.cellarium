@@ -45,6 +45,7 @@ public class Rasterland
 	//@PreInit    // used in 1.5.2
 	public void preInit(FMLPreInitializationEvent event) 
 	{
+		proxy.preInit();
 		Blocks.init();
 		Items.init();
 	}
@@ -57,7 +58,7 @@ public class Rasterland
 		Blocks.load();
 		Items.load();
 		
-		LanguageRegistry.addName(tabRasterland,"Rasterland");
+		//LanguageRegistry.addName(tabRasterland,"Rasterland");
 		
 		DimensionManager.registerProviderType(DIMENSIONID, WorldProviderVoid.class, false);
 		DimensionManager.registerDimension(DIMENSIONID, DIMENSIONID);
