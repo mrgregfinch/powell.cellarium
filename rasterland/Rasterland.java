@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.DimensionManager;
+import powell.rasterland.biome.Biomes;
 import powell.rasterland.block.Blocks;
 import powell.rasterland.item.Items;
 import powell.rasterland.network.CommonProxy;
@@ -17,7 +18,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid=ModInfo.ID, name=ModInfo.NAME, version=ModInfo.VERSION)
 @NetworkMod(channels = {ModInfo.CHANNEL}, clientSideRequired=true)
@@ -48,6 +48,7 @@ public class Rasterland
 		proxy.preInit();
 		Blocks.init();
 		Items.init();
+		Biomes.preInit();
 	}
 
 
@@ -57,6 +58,7 @@ public class Rasterland
 	{
 		Blocks.load();
 		Items.load();
+		Biomes.load();
 		
 		//LanguageRegistry.addName(tabRasterland,"Rasterland");
 		

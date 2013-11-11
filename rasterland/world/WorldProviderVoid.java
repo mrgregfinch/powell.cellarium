@@ -1,5 +1,7 @@
 package powell.rasterland.world;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import powell.rasterland.Rasterland;
 import powell.rasterland.chunk.ChunkProviderVoid;
 import net.minecraft.world.WorldProvider;
@@ -29,5 +31,15 @@ public class WorldProviderVoid extends WorldProvider
 		// TODO Auto-generated method stub
 		return "Void Dimension";
 	}
+	
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean isSkyColored()
+	{
+		return false;
+	}
+	
+	
 
 }
