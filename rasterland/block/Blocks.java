@@ -26,7 +26,7 @@ public class Blocks
 		blockTeleporter = new BlockTeleporter(2000);
 		awesomeOre = new BlockAwesomeOre(3587).setHardness(5F).setResistance(5F).setCreativeTab(Rasterland.tabRasterland).setUnlocalizedName("AwesomeOre");
         
-		rasterBlock = new RasterBlock(3588).setHardness(5F).setResistance(5F).setCreativeTab(Rasterland.tabRasterland).setUnlocalizedName("rasterBlock");
+		rasterBlock = new RasterBlock(211).setHardness(5F).setResistance(5F).setCreativeTab(Rasterland.tabRasterland).setUnlocalizedName("rasterBlock");
 		
 	}
 	
