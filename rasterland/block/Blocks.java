@@ -13,7 +13,7 @@ public class Blocks
 {
 	public static Block blockTeleporter;
 	public static Block blockTeleporterFire;
-	public static Block awesomeOre;
+	//public static Block awesomeOre;
 	//public static Block rasterBlock;
 	public static Block redRasterBlock;
 	public static Block orangeRasterBlock;
@@ -21,8 +21,17 @@ public class Blocks
 	public static Block greenRasterBlock;
 	public static Block blueRasterBlock;
 	public static Block purpleRasterBlock;
+	
+	public static Block redRasterBrick;
+	public static Block orangeRasterBrick;
+	public static Block yellowRasterBrick;
+	public static Block greenRasterBrick;
+	public static Block blueRasterBrick;
+	public static Block purpleRasterBrick;
+	
+	public static Block blueRasterDirt;
 
-	private static final String[] awesomeColors = { "White", "Orange", "Magenta", "Light-Blue", "Yellow", "Lime", "Pink", "Gray", "Light-Gray", "Cyan", "Purple", "Blue", "Brown", "Green", "Red", "Black" };
+	//private static final String[] awesomeColors = { "White", "Orange", "Magenta", "Light-Blue", "Yellow", "Lime", "Pink", "Gray", "Light-Gray", "Cyan", "Purple", "Blue", "Brown", "Green", "Red", "Black" };
 	private static final String[] RASTER_COLOR_NAMES = { "red", "orange", "yellow", "green", "blue", "purple"};
 
 
@@ -30,7 +39,7 @@ public class Blocks
 	public static void init()
 	{
 		blockTeleporter = new BlockTeleporter(2000);
-		awesomeOre = new BlockAwesomeOre(3587).setHardness(5F).setResistance(5F).setCreativeTab(Rasterland.tabRasterland).setUnlocalizedName("AwesomeOre");
+		//awesomeOre = new BlockAwesomeOre(3587).setHardness(5F).setResistance(5F).setCreativeTab(Rasterland.tabRasterland).setUnlocalizedName("AwesomeOre");
 
 		//	rasterBlock = new RasterBlock(211).setHardness(5F).setResistance(5F).setCreativeTab(Rasterland.tabRasterland).setUnlocalizedName("rasterBlock");
 		redRasterBlock = new RedRasterBlock(211);
@@ -39,6 +48,15 @@ public class Blocks
 		greenRasterBlock = new GreenRasterBlock(214);
 		blueRasterBlock = new BlueRasterBlock(215);
 		purpleRasterBlock = new PurpleRasterBlock(216);
+		
+		redRasterBrick = new RedRasterBrick(217);
+		orangeRasterBrick = new OrangeRasterBrick(218);
+		yellowRasterBrick = new YellowRasterBrick(219);
+		greenRasterBrick = new GreenRasterBrick(220);
+		blueRasterBrick = new BlueRasterBrick(221);
+		purpleRasterBrick = new PurpleRasterBrick(222);
+		
+		blueRasterDirt = new BlueRasterDirt(223);
 	}
 
 	public static void load()
@@ -46,9 +64,9 @@ public class Blocks
 		GameRegistry.registerBlock(blockTeleporter, "blockTeleporter");
 		LanguageRegistry.addName(blockTeleporter, "Block for Teleportation");
 
-		GameRegistry.registerBlock(awesomeOre, ItemAwesomeOre.class ,"awesomeOre");
-		for (int i = 0; i < 16; i++) 
-			LanguageRegistry.addName(new ItemStack(awesomeOre, 1, i), awesomeColors[new ItemStack(awesomeOre, 1, i).getItemDamage()] + " Neon Ore");
+//		GameRegistry.registerBlock(awesomeOre, ItemAwesomeOre.class ,"awesomeOre");
+//		for (int i = 0; i < 16; i++) 
+//			LanguageRegistry.addName(new ItemStack(awesomeOre, 1, i), awesomeColors[new ItemStack(awesomeOre, 1, i).getItemDamage()] + " Neon Ore");
 
 		//		GameRegistry.registerBlock(rasterBlock, ItemRasterBlock.class, "rasterBlock");
 		//		for(int i = 0; i < 6; i++)
@@ -72,5 +90,26 @@ public class Blocks
 
 		GameRegistry.registerBlock(purpleRasterBlock,"purpleRasterBlock");
 		LanguageRegistry.addName(purpleRasterBlock, "Purple Raster Block");
+		
+		GameRegistry.registerBlock(redRasterBrick, "redRasterBrick");
+		LanguageRegistry.addName(redRasterBrick, "Red Raster Brick");
+		
+		GameRegistry.registerBlock(orangeRasterBrick, "orangeRasterBrick");
+		LanguageRegistry.addName(orangeRasterBrick, "Orange Raster Brick");
+		
+		GameRegistry.registerBlock(yellowRasterBrick, "yellowRasterBrick");
+		LanguageRegistry.addName(yellowRasterBrick, "Yellow Raster Brick");
+		
+		GameRegistry.registerBlock(greenRasterBrick, "greenRasterBrick");
+		LanguageRegistry.addName(greenRasterBrick, "Green Raster Brick");
+		
+		GameRegistry.registerBlock(blueRasterBrick, "blueRasterBrick");
+		LanguageRegistry.addName(blueRasterBrick, "Blue Raster Brick");
+		
+		GameRegistry.registerBlock(purpleRasterBrick, "purpleRasterBrick");
+		LanguageRegistry.addName(purpleRasterBrick, "Purple Raster Brick");
+		
+		GameRegistry.registerBlock(blueRasterDirt,"blueRasterDirt");
+		LanguageRegistry.addName(blueRasterDirt,"Blue Raster Dirt");
 	}
 }
