@@ -6,6 +6,8 @@ import net.minecraftforge.common.DimensionManager;
 import powell.rasterland.Rasterland;
 import powell.rasterland.chunk.RasterlandChunkManager;
 import powell.rasterland.chunk.RasterlandChunkProvider;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class RasterlandWorldProvider extends WorldProvider
 {
@@ -46,5 +48,25 @@ public class RasterlandWorldProvider extends WorldProvider
 	{
 		return true;
 	}
+	
+	//testing:
+//	 @SideOnly(Side.CLIENT)
+//	    public boolean isSkyColored()
+//	    {
+//	        return false;
+//	    }
+	    public float getCloudHeight()
+	    {
+	        return 0.0F;
+	    }
+//	    public boolean isSurfaceWorld()
+//	    {
+//	        return false;
+//	    }
+	    
+	    public float[] calcSunriseSunsetColors(float par1, float par2)
+	    {
+	        return null;
+	    }
 
 }
