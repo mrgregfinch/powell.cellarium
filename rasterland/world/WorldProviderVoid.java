@@ -1,5 +1,7 @@
 package powell.rasterland.world;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -33,12 +35,22 @@ public class WorldProviderVoid extends WorldProvider
 	}
 	
 	
+	// the below to things turn the sky black(ish) but not what i'm looking for, need to keep trying.
+	/*@Override
+	@SideOnly(Side.CLIENT)
+	public Vec3 getSkyColor(Entity cameraEntity, float partialTicks)
+	{
+	         return this.worldObj.getWorldVec3Pool().getVecFromPool(0, 0, 0);
+	}
+
+	
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean isSkyColored()
 	{
-		return false;
-	}
+		return true;
+	}*/
 	
 	
 

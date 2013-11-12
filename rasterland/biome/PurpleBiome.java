@@ -4,10 +4,10 @@ import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import powell.rasterland.block.Blocks;
 
-public class BiomeTestBiome extends BiomeGenBase
+public class PurpleBiome extends BiomeGenBase
 {
 
-	public BiomeTestBiome(int par1)
+	public PurpleBiome(int par1)
 	{
 		super(par1);
 		this.topBlock = (byte)Blocks.purpleRasterBlock.blockID;

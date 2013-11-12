@@ -7,8 +7,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.DimensionManager;
 import powell.rasterland.biome.Biomes;
 import powell.rasterland.block.Blocks;
+import powell.rasterland.fluids.Fluids;
 import powell.rasterland.item.Items;
 import powell.rasterland.network.CommonProxy;
+import powell.rasterland.world.RasterlandWorldProvider;
 import powell.rasterland.world.WorldProviderVoid;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -46,6 +48,7 @@ public class Rasterland
 	public void preInit(FMLPreInitializationEvent event) 
 	{
 		proxy.preInit();
+		Fluids.init();
 		Blocks.init();
 		Items.init();
 		Biomes.preInit();
@@ -56,13 +59,15 @@ public class Rasterland
 	//@Init       // used in 1.5.2
 	public void load(FMLInitializationEvent event) 
 	{
+		Fluids.load();
 		Blocks.load();
 		Items.load();
 		Biomes.load();
 		
 		//LanguageRegistry.addName(tabRasterland,"Rasterland");
 		
-		DimensionManager.registerProviderType(DIMENSIONID, WorldProviderVoid.class, false);
+		//DimensionManager.registerProviderType(DIMENSIONID, WorldProviderVoid.class, false);//original working (1 biome)
+		DimensionManager.registerProviderType(DIMENSIONID, RasterlandWorldProvider.class, false);
 		DimensionManager.registerDimension(DIMENSIONID, DIMENSIONID);
 	}
 

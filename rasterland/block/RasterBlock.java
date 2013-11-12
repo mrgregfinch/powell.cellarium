@@ -16,7 +16,7 @@ import powell.rasterland.network.ClientProxy;
 
 public class RasterBlock extends Block {
 
-    private Icon[] blockColors = new Icon[6];
+   // private Icon[] blockColors = new Icon[6];
 
     public Block belowBlock = Block.stone;
 
@@ -25,10 +25,10 @@ public class RasterBlock extends Block {
             this.setLightOpacity(15);
     }
 
-    @Override
+  /*  @Override
     public Icon getIcon(int par1, int par2) {
             return blockColors[par2];
-    }
+    }*/
     
     @Override
 public boolean isBlockSolidOnSide(World world, int x, int y, int z, ForgeDirection side){
@@ -86,7 +86,7 @@ public boolean isBlockSolidOnSide(World world, int x, int y, int z, ForgeDirecti
     /**
      * returns a list of blocks with the same ID, but different meta (eg: wood
      * returns 4 blocks)
-     */
+     *//*
     @Override
     public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List) {
             par3List.add(new ItemStack(par1, 1, 0));
@@ -105,7 +105,7 @@ public boolean isBlockSolidOnSide(World world, int x, int y, int z, ForgeDirecti
             par3List.add(new ItemStack(par1, 1, 13));
             par3List.add(new ItemStack(par1, 1, 14));
             par3List.add(new ItemStack(par1, 1, 15));*/
-    }
+  //  }
 
     @Override
     public int damageDropped(int par1) {
@@ -117,24 +117,24 @@ public boolean isBlockSolidOnSide(World world, int x, int y, int z, ForgeDirecti
      * needs with the given IconRegister. This is the only chance you get to
      * register icons.
      */
-    @Override
-    public void registerIcons(IconRegister par1IconRegister) {
-            blockColors[0] = par1IconRegister.registerIcon("rasterland:rasterBlockRed");
-            blockColors[1] = par1IconRegister.registerIcon("rasterland:rasterBlockOrange");
-            blockColors[2] = par1IconRegister.registerIcon("rasterland:rasterBlockYellow");
-            blockColors[3] = par1IconRegister.registerIcon("rasterland:rasterBlockGreen");
-            blockColors[4] = par1IconRegister.registerIcon("rasterland:rasterBlockBlue");
-            blockColors[5] = par1IconRegister.registerIcon("rasterland:rasterBlockPurple");/*
-            blockColors[6] = par1IconRegister.registerIcon("rasterland:rasterBlock");/*
-            blockColors[7] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreGray");
-            blockColors[8] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreLGray");
-            blockColors[9] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreCyan");
-            blockColors[10] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOrePurple");
-            blockColors[11] = par1IconRegister.registerIcon("rasterland:awesomeOreBlue");
-            blockColors[12] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreBrown");
-            blockColors[13] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreGreen");
-            blockColors[14] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreRed");
-            blockColors[15] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreBlack");*/
-    }
+//    @Override
+//    public void registerIcons(IconRegister par1IconRegister) {
+//            blockColors[0] = par1IconRegister.registerIcon("rasterland:rasterBlockRed");
+//            blockColors[1] = par1IconRegister.registerIcon("rasterland:rasterBlockOrange");
+//            blockColors[2] = par1IconRegister.registerIcon("rasterland:rasterBlockYellow");
+//            blockColors[3] = par1IconRegister.registerIcon("rasterland:rasterBlockGreen");
+//            blockColors[4] = par1IconRegister.registerIcon("rasterland:rasterBlockBlue");
+//            blockColors[5] = par1IconRegister.registerIcon("rasterland:rasterBlockPurple");/*
+//            blockColors[6] = par1IconRegister.registerIcon("rasterland:rasterBlock");/*
+//            blockColors[7] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreGray");
+//            blockColors[8] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreLGray");
+//            blockColors[9] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreCyan");
+//            blockColors[10] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOrePurple");
+//            blockColors[11] = par1IconRegister.registerIcon("rasterland:awesomeOreBlue");
+//            blockColors[12] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreBrown");
+//            blockColors[13] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreGreen");
+//            blockColors[14] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreRed");
+//            blockColors[15] = par1IconRegister.registerIcon("awesomeMod:fuj1n.AwesomeMod.awesomeOreBlack");*/
+//    }
     
 }

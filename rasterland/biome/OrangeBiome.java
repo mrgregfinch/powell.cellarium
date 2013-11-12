@@ -4,13 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import powell.rasterland.block.Blocks;
 
-public class BiomeTestBiome extends BiomeGenBase
+public class OrangeBiome extends BiomeGenBase
 {
 
-	public BiomeTestBiome(int par1)
+	public OrangeBiome(int par1)
 	{
 		super(par1);
-		this.topBlock = (byte)Blocks.purpleRasterBlock.blockID;
+		this.topBlock = (byte)Blocks.orangeRasterBlock.blockID;
         
 		// TODO Auto-generated constructor stub
 	}

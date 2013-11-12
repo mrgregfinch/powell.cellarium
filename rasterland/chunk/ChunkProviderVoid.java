@@ -562,6 +562,7 @@ public class ChunkProviderVoid implements IChunkProvider
             l1 = this.rand.nextInt(128);
             i2 = l + this.rand.nextInt(16) + 8;
             (new WorldGenLakes(Block.waterStill.blockID)).generate(this.worldObj, this.rand, k1, l1, i2);
+            //change to make custom lake liquid??
         }
 
         if (TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAVA) &&
