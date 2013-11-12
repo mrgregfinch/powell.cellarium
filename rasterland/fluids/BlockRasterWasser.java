@@ -50,7 +50,7 @@ public class BlockRasterWasser extends BlockFluidClassic
 //        	if(world.getBlockId(x, y, z) == Cellarium.blockBoilingBlood.blockID && world.getBlockMetadata(x, y, z) == 0)
 //        		world.setBlock(x, y, z, Cellarium.bloodStone.blockID);
 //        	else
-//        		world.setBlock(x, y, z, this.blockID, meta, 3);
+        		world.setBlock(x, y, z, this.blockID, meta, 3);
         }
     }
 }

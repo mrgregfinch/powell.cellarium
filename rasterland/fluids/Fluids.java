@@ -14,7 +14,7 @@ public class Fluids
 	public static void init()
 	{
 		rasterWasser = new RasterWasser();
-		blockRasterWasser = new BlockRasterWasser(2734);
+		blockRasterWasser = new BlockRasterWasser(210);
 	}
 	
 	public static void load()

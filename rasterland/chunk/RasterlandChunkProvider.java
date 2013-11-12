@@ -190,7 +190,7 @@ public class RasterlandChunkProvider implements IChunkProvider {
 								if ((d16 += d15) > 0.0D) {
 									par3ArrayOfByte[j2 += short1] = (byte) Block.stone.blockID;//Block.stone.blockID;
 								} else if (k1 * 8 + l1 < b2) {
-									par3ArrayOfByte[j2 += short1] = (byte) Block.waterStill.blockID;
+									par3ArrayOfByte[j2 += short1] = (byte) Fluids.blockRasterWasser.blockID;
 								} else {
 									par3ArrayOfByte[j2 += short1] = 0;
 								}
@@ -256,7 +256,7 @@ public class RasterlandChunkProvider implements IChunkProvider {
 									if (f < 0.15F) {
 										b1 = (byte) Block.ice.blockID;
 									} else {
-										b1 = (byte) Block.waterStill.blockID;
+										b1 = (byte) Fluids.blockRasterWasser.blockID;
 									}
 								}
 
