@@ -21,6 +21,8 @@ public class Blocks
 	public static Block greenRasterBlock;
 	public static Block blueRasterBlock;
 	public static Block purpleRasterBlock;
+	public static Block blackRasterBlock;
+	public static Block whiteRasterBlock;
 	
 	public static Block redRasterBrick;
 	public static Block orangeRasterBrick;
@@ -57,6 +59,8 @@ public class Blocks
 		purpleRasterBrick = new PurpleRasterBrick(222);
 		
 		blueRasterDirt = new BlueRasterDirt(223);
+		blackRasterBlock = new BlackRasterBlock(224);
+		whiteRasterBlock = new WhiteRasterBlock(225);
 	}
 
 	public static void load()
@@ -111,5 +115,11 @@ public class Blocks
 		
 		GameRegistry.registerBlock(blueRasterDirt,"blueRasterDirt");
 		LanguageRegistry.addName(blueRasterDirt,"Blue Raster Dirt");
+		
+		GameRegistry.registerBlock(blackRasterBlock,"blackRasterBlock");
+		LanguageRegistry.addName(blackRasterBlock, "Black Raster Block");
+		
+		GameRegistry.registerBlock(whiteRasterBlock,"whiteRasterBlock");
+		LanguageRegistry.addName(whiteRasterBlock,"White Raster Block");
 	}
 }
