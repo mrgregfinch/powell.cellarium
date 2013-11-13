@@ -82,7 +82,7 @@ public class RasterlandChunkProvider implements IChunkProvider {
 	private RasterMapGenVillage villageGenerator = new RasterMapGenVillage();
 
 	/** Holds Mineshaft Generator */
-//	private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
+	//	private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
 	private MapGenScatteredFeature scatteredFeatureGenerator = new MapGenScatteredFeature();
 
 	/** Holds ravine generator */
@@ -117,7 +117,7 @@ public class RasterlandChunkProvider implements IChunkProvider {
 		caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
 		strongholdGenerator = (MapGenStronghold) TerrainGen.getModdedMapGen(strongholdGenerator, STRONGHOLD);
 		villageGenerator = (RasterMapGenVillage) TerrainGen.getModdedMapGen(villageGenerator, VILLAGE);
-	//	mineshaftGenerator = (MapGenMineshaft) TerrainGen.getModdedMapGen(mineshaftGenerator, MINESHAFT);
+		//	mineshaftGenerator = (MapGenMineshaft) TerrainGen.getModdedMapGen(mineshaftGenerator, MINESHAFT);
 		scatteredFeatureGenerator = (MapGenScatteredFeature) TerrainGen.getModdedMapGen(scatteredFeatureGenerator, SCATTERED_FEATURE);
 		ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, RAVINE);
 	}
@@ -187,9 +187,10 @@ public class RasterlandChunkProvider implements IChunkProvider {
 							double d15 = (d11 - d10) * d14;
 							double d16 = d10 - d15;
 
+							//requires change in both methods to properly generate custom dimension blocks under biomes
 							for (int k2 = 0; k2 < 4; ++k2) {
 								if ((d16 += d15) > 0.0D) {
-									par3ArrayOfByte[j2 += short1] = (byte) Block.stone.blockID;//Block.stone.blockID;
+									par3ArrayOfByte[j2 += short1] = (byte) Block.glowStone.blockID;//Block.stone.blockID;
 								} else if (k1 * 8 + l1 < b2) {
 									par3ArrayOfByte[j2 += short1] = (byte) Fluids.blockRasterWasser.blockID;
 								} else {
@@ -243,7 +244,7 @@ public class RasterlandChunkProvider implements IChunkProvider {
 
 						if (b3 == 0) {
 							j1 = -1;
-						} else if (b3 == Block.stone.blockID) {
+						} else if (b3 == Block.glowStone.blockID) {
 							if (j1 == -1) {
 								if (i1 <= 0) {
 									b1 = 0;
@@ -306,7 +307,7 @@ public class RasterlandChunkProvider implements IChunkProvider {
 		this.ravineGenerator.generate(this, this.worldObj, par1, par2, abyte);
 
 		if (this.mapFeaturesEnabled) {
-		//	this.mineshaftGenerator.generate(this, this.worldObj, par1, par2, abyte);
+			//	this.mineshaftGenerator.generate(this, this.worldObj, par1, par2, abyte);
 			this.villageGenerator.generate(this, this.worldObj, par1, par2, abyte);
 			this.strongholdGenerator.generate(this, this.worldObj, par1, par2, abyte);
 			this.scatteredFeatureGenerator.generate(this, this.worldObj, par1, par2, abyte);
@@ -479,7 +480,7 @@ public class RasterlandChunkProvider implements IChunkProvider {
 		MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Pre(par1IChunkProvider, worldObj, rand, par2, par3, flag));
 
 		if (this.mapFeaturesEnabled) {
-		//	this.mineshaftGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
+			//	this.mineshaftGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
 			flag = this.villageGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
 			System.out.println("flag is " + flag);
 			this.strongholdGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
@@ -580,7 +581,7 @@ public class RasterlandChunkProvider implements IChunkProvider {
 
 	public void recreateStructures(int par1, int par2) {
 		if (this.mapFeaturesEnabled) {
-		//	this.mineshaftGenerator.generate(this, this.worldObj, par1, par2, (byte[]) null);
+			//	this.mineshaftGenerator.generate(this, this.worldObj, par1, par2, (byte[]) null);
 			this.villageGenerator.generate(this, this.worldObj, par1, par2, (byte[]) null);
 			this.strongholdGenerator.generate(this, this.worldObj, par1, par2, (byte[]) null);
 			this.scatteredFeatureGenerator.generate(this, this.worldObj, par1, par2, (byte[]) null);
@@ -591,6 +592,6 @@ public class RasterlandChunkProvider implements IChunkProvider {
 	public void saveExtraData()
 	{
 		// TODO Auto-generated method stub
-		
+
 	}
 }

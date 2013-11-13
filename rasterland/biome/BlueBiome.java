@@ -11,7 +11,7 @@ public class BlueBiome extends BiomeGenBase
 	{
 		super(par1);
 		this.topBlock = (byte)Blocks.blueRasterBlock.blockID;
-        
+		this.fillerBlock = (byte)Blocks.blueRasterBlock.blockID;
 		// TODO Auto-generated constructor stub
 	}
 
