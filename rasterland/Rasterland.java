@@ -10,8 +10,8 @@ import powell.rasterland.block.Blocks;
 import powell.rasterland.fluids.Fluids;
 import powell.rasterland.item.Items;
 import powell.rasterland.network.CommonProxy;
+import powell.rasterland.world.RasterWorldStructureGenerator;
 import powell.rasterland.world.RasterlandWorldProvider;
-import powell.rasterland.world.WorldProviderVoid;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -20,6 +20,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid=ModInfo.ID, name=ModInfo.NAME, version=ModInfo.VERSION)
 @NetworkMod(channels = {ModInfo.CHANNEL}, clientSideRequired=true)
@@ -69,6 +70,7 @@ public class Rasterland
 		//DimensionManager.registerProviderType(DIMENSIONID, WorldProviderVoid.class, false);//original working (1 biome)
 		DimensionManager.registerProviderType(DIMENSIONID, RasterlandWorldProvider.class, false);
 		DimensionManager.registerDimension(DIMENSIONID, DIMENSIONID);
+		GameRegistry.registerWorldGenerator(new RasterWorldStructureGenerator());
 	}
 
 	@EventHandler // used in 1.6.2

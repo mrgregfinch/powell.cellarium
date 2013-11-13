@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import powell.rasterland.fluids.Fluids;
+import powell.rasterland.structure.RasterMapGenVillage;
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.MINESHAFT;
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE;
@@ -78,7 +79,7 @@ public class RasterlandChunkProvider implements IChunkProvider {
 	private MapGenStronghold strongholdGenerator = new MapGenStronghold();
 
 	/** Holds Village Generator */
-	private MapGenVillage villageGenerator = new MapGenVillage();
+	private RasterMapGenVillage villageGenerator = new RasterMapGenVillage();
 
 	/** Holds Mineshaft Generator */
 //	private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
@@ -115,7 +116,7 @@ public class RasterlandChunkProvider implements IChunkProvider {
 	{
 		caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
 		strongholdGenerator = (MapGenStronghold) TerrainGen.getModdedMapGen(strongholdGenerator, STRONGHOLD);
-		villageGenerator = (MapGenVillage) TerrainGen.getModdedMapGen(villageGenerator, VILLAGE);
+		villageGenerator = (RasterMapGenVillage) TerrainGen.getModdedMapGen(villageGenerator, VILLAGE);
 	//	mineshaftGenerator = (MapGenMineshaft) TerrainGen.getModdedMapGen(mineshaftGenerator, MINESHAFT);
 		scatteredFeatureGenerator = (MapGenScatteredFeature) TerrainGen.getModdedMapGen(scatteredFeatureGenerator, SCATTERED_FEATURE);
 		ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, RAVINE);
@@ -480,6 +481,7 @@ public class RasterlandChunkProvider implements IChunkProvider {
 		if (this.mapFeaturesEnabled) {
 		//	this.mineshaftGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
 			flag = this.villageGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
+			System.out.println("flag is " + flag);
 			this.strongholdGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
 			this.scatteredFeatureGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
 		}

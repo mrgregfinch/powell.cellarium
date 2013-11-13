@@ -18,7 +18,7 @@ public class RasterlandWorldProvider extends WorldProvider
 	public void registerWorldChunkManager()
 	{
 		this.worldChunkMgr = new RasterlandChunkManager(worldObj.getSeed(), terrainType);
-		this.hasNoSky = true;
+		this.hasNoSky = false;
 	}
 
 	@Override
@@ -51,30 +51,30 @@ public class RasterlandWorldProvider extends WorldProvider
 	}
 
 	
-	@SideOnly(Side.CLIENT)
-	public boolean isSkyColored()
-	{
-		return false;
-	}
-	
-	public float getCloudHeight()
-	{
-		return 0.0F;
-	}
-	
-	public boolean isSurfaceWorld()
-	{
-		return false;
-	}
-
-	public float[] calcSunriseSunsetColors(float par1, float par2)
-	{
-		return null;
-	}
-
-	public Vec3 getFogColor(float par1, float par2)
-	{
-		return this.worldObj.getWorldVec3Pool().getVecFromPool(0.0, 0.0, 0.0);
-	}
+//	@SideOnly(Side.CLIENT)
+//	public boolean isSkyColored()
+//	{
+//		return false;
+//	}
+//	
+//	public float getCloudHeight()
+//	{
+//		return 0.0F;
+//	}
+//	
+//	public boolean isSurfaceWorld()
+//	{
+//		return false;
+//	}
+//
+//	public float[] calcSunriseSunsetColors(float par1, float par2)
+//	{
+//		return null;
+//	}
+//
+//	public Vec3 getFogColor(float par1, float par2)
+//	{
+//		return this.worldObj.getWorldVec3Pool().getVecFromPool(0.0, 0.0, 0.0);
+//	}
 
 }
