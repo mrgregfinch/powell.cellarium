@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.DimensionManager;
 import powell.rasterland.biome.Biomes;
 import powell.rasterland.block.Blocks;
+import powell.rasterland.entity.Entities;
 import powell.rasterland.fluids.Fluids;
 import powell.rasterland.item.Items;
 import powell.rasterland.network.CommonProxy;
@@ -64,6 +65,7 @@ public class Rasterland
 		Blocks.load();
 		Items.load();
 		Biomes.load();
+		Entities.init();
 		
 		//LanguageRegistry.addName(tabRasterland,"Rasterland");
 		
@@ -71,6 +73,8 @@ public class Rasterland
 		DimensionManager.registerProviderType(DIMENSIONID, RasterlandWorldProvider.class, false);
 		DimensionManager.registerDimension(DIMENSIONID, DIMENSIONID);
 		GameRegistry.registerWorldGenerator(new RasterWorldStructureGenerator());
+		
+		proxy.registerRenderers();
 	}
 
 	@EventHandler // used in 1.6.2
