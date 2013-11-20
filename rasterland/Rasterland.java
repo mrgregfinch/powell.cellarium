@@ -2,17 +2,23 @@ package powell.rasterland;
 
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.MinecraftForge;
 import powell.rasterland.biome.Biomes;
 import powell.rasterland.block.Blocks;
 import powell.rasterland.entity.Entities;
+import powell.rasterland.event.RasterizedPlayerEventHandler;
 import powell.rasterland.fluids.Fluids;
+import powell.rasterland.gui.EnergyBarGui;
 import powell.rasterland.item.Items;
 import powell.rasterland.network.CommonProxy;
+import powell.rasterland.network.RasterlandPacketHandler;
 import powell.rasterland.world.RasterWorldStructureGenerator;
 import powell.rasterland.world.RasterlandWorldProvider;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -24,7 +30,8 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid=ModInfo.ID, name=ModInfo.NAME, version=ModInfo.VERSION)
-@NetworkMod(channels = {ModInfo.CHANNEL}, clientSideRequired=true)
+@NetworkMod(channels = {"rasterlandChan", "rasterizedPlayer"}, clientSideRequired=true, serverSideRequired = true, 
+		packetHandler = RasterlandPacketHandler.class)
 
 
 public class Rasterland
@@ -61,6 +68,8 @@ public class Rasterland
 	//@Init       // used in 1.5.2
 	public void load(FMLInitializationEvent event) 
 	{
+		MinecraftForge.EVENT_BUS.register(new RasterizedPlayerEventHandler());
+		
 		Fluids.load();
 		Blocks.load();
 		Items.load();
@@ -82,5 +91,8 @@ public class Rasterland
 	public void postInit(FMLPostInitializationEvent event) 
 	{
 		// Stub Method
+		if (FMLCommonHandler.instance().getEffectiveSide().isClient())
+			MinecraftForge.EVENT_BUS.register(new EnergyBarGui(Minecraft.getMinecraft()));
+
 	}
 }

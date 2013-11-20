@@ -91,8 +91,8 @@ public class RenderThrownDisc extends Render
         float f4 = 1.0F;
         float f5 = 0.5F;
         float f6 = 0.25F;
-        GL11.glRotatef(180.0F - this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
-        GL11.glRotatef(-this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
+        //GL11.glRotatef( - this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
+        GL11.glRotatef(90.0F - this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
         par1Tessellator.startDrawingQuads();
         par1Tessellator.setNormal(0.0F, 1.0F, 0.0F);
         par1Tessellator.addVertexWithUV((double)(0.0F - f5), (double)(0.0F - f6), 0.0D, (double)f, (double)f3);

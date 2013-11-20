@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import powell.rasterland.Rasterland;
 import powell.rasterland.entity.EntityDisc;
+import powell.rasterland.properties.RasterizedPlayer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -36,6 +37,9 @@ public class Disc extends Item
 	 */
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
 	{
+		RasterizedPlayer props = RasterizedPlayer.get(player);
+		System.out.println("Player currently has " + props.getEnergy() + " energy in reserve.");
+		props.consumeEnergy(20);
 		if (!player.capabilities.isCreativeMode)
 		{
 			--itemstack.stackSize;
