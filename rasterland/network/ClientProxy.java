@@ -1,8 +1,12 @@
 package powell.rasterland.network;
 
+import net.minecraftforge.common.MinecraftForge;
 import powell.rasterland.entity.EntityDisc;
+import powell.rasterland.event.RasterlandSoundEventHandler;
 import powell.rasterland.item.Items;
-import powell.rasterland.render.*;
+import powell.rasterland.render.RenderAwesomeOre;
+import powell.rasterland.render.RenderRasterBlock;
+import powell.rasterland.render.RenderThrownDisc;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy
@@ -21,6 +25,8 @@ public class ClientProxy extends CommonProxy
 
 		rasterBlockRenderType = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(new RenderRasterBlock());
+		
+		MinecraftForge.EVENT_BUS.register(new RasterlandSoundEventHandler());
 	}
 
 

@@ -14,6 +14,10 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.common.network.Player;
 
+
+
+
+
 public class RasterizedPlayer implements IExtendedEntityProperties
 {
 	//property identifier
@@ -24,11 +28,14 @@ public class RasterizedPlayer implements IExtendedEntityProperties
 
 	private int currentEnergy;
 	private int maxEnergy;
+	
+	private PowerColor color;
 
 	public RasterizedPlayer(EntityPlayer p)
 	{
 		this.player = p;
 		this.currentEnergy = this.maxEnergy = 100;
+		this.color = PowerColor.WHITE;
 	}
 
 	//for convenience and to make code look nicer
@@ -51,6 +58,7 @@ public class RasterizedPlayer implements IExtendedEntityProperties
 
 		properties.setInteger("CurrentEnergy", this.currentEnergy);
 		properties.setInteger("MaxEnergy", this.maxEnergy);
+		properties.setInteger("PowerColor", this.color.getInt());
 
 		//adds custom tag to the player's tag
 		compound.setTag(EXT_PROP_NAME, properties);
@@ -66,6 +74,7 @@ public class RasterizedPlayer implements IExtendedEntityProperties
 		// Get our data from the custom tag compound
 		this.currentEnergy = properties.getInteger("CurrentEnergy");
 		this.maxEnergy = properties.getInteger("MaxEnergy");
+		setPowerColor(properties.getInteger("PowerColor"));
 
 		// Just so you know it's working, add this line:
 		System.out.println("[Rasterland] Energy from NBT: " + this.currentEnergy + "/" + this.maxEnergy);
@@ -145,6 +154,8 @@ public class RasterizedPlayer implements IExtendedEntityProperties
 		{
 			outputStream.writeInt(this.maxEnergy);
 			outputStream.writeInt(this.currentEnergy);
+			outputStream.writeInt(this.color.getInt());
+			
 		} 
 		catch (Exception ex) 
 		{
@@ -159,6 +170,22 @@ public class RasterizedPlayer implements IExtendedEntityProperties
 			EntityPlayerMP player1 = (EntityPlayerMP) player;
 			PacketDispatcher.sendPacketToPlayer(packet, (Player) player1);
 		}
+	}
+
+	public String getPowerColor()
+	{
+		return this.color.toString();
+	}
+
+	public void setPowerColor(int readInt)
+	{
+		for(PowerColor pc : PowerColor.values())
+		{
+			if(pc.getInt() == readInt)
+				this.color = pc;
+		}
+		this.sync();
+		
 	}
 
 }

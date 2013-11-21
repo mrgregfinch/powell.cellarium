@@ -41,6 +41,7 @@ public class RasterlandPacketHandler implements IPacketHandler
 		{
 			props.setMaxEnergy(inputStream.readInt());
 			props.setCurrentEnergy(inputStream.readInt());
+			props.setPowerColor(inputStream.readInt());
 		} 
 		catch (IOException e) 
 		{
@@ -48,7 +49,8 @@ public class RasterlandPacketHandler implements IPacketHandler
 			return;
 		}
 		// Just so you can see in the console that it's working:
-		System.out.println("[PACKET] Mana from packet: " + props.getEnergy() + "/" + props.getMaxEnergy());
+		System.out.println("[PACKET] Energy from packet: " + props.getEnergy() + "/" + props.getMaxEnergy());
+		System.out.println("[PACKET] PowerColor from packet: " + props.getPowerColor());
 	}
 
 }

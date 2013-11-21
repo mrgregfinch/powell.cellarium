@@ -10,6 +10,7 @@ import net.minecraftforge.event.ForgeSubscribe;
 
 import org.lwjgl.opengl.GL11;
 
+import powell.rasterland.Rasterland;
 import powell.rasterland.properties.RasterizedPlayer;
 
 public class EnergyBarGui extends Gui
@@ -42,7 +43,10 @@ public class EnergyBarGui extends Gui
 			return;
 		}
 
-
+		if(mc.thePlayer.dimension != Rasterland.DIMENSIONID)
+		{
+			return;
+		}
 
 		//get player properties
 		RasterizedPlayer props = RasterizedPlayer.get(this.mc.thePlayer);
