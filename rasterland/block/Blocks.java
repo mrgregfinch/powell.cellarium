@@ -33,6 +33,9 @@ public class Blocks
 	
 	public static Block blueRasterDirt;
 	public static Block testBlock;
+	
+	public static Block rasterWallBase;
+	public static Block rasterWall;
 
 	//private static final String[] awesomeColors = { "White", "Orange", "Magenta", "Light-Blue", "Yellow", "Lime", "Pink", "Gray", "Light-Gray", "Cyan", "Purple", "Blue", "Brown", "Green", "Red", "Black" };
 	private static final String[] RASTER_COLOR_NAMES = { "red", "orange", "yellow", "green", "blue", "purple"};
@@ -64,6 +67,8 @@ public class Blocks
 		whiteRasterBlock = new WhiteRasterBlock(225);
 		
 		testBlock = new TestBlock(226);
+		rasterWallBase = new RasterWallBase(1946);
+		rasterWall = new RasterWall(1947, rasterWallBase);
 	}
 
 	public static void load()
@@ -127,5 +132,11 @@ public class Blocks
 		
 		GameRegistry.registerBlock(testBlock,"testBlock");
 		LanguageRegistry.addName(testBlock,"Test Block");
+		
+		GameRegistry.registerBlock(rasterWallBase, "rasterWallBase");
+		LanguageRegistry.addName(rasterWallBase, "Raster Wall Base");
+		
+		GameRegistry.registerBlock(rasterWall, "rasterWall");
+		LanguageRegistry.addName(rasterWall, "Raster Wall");
 	}
 }

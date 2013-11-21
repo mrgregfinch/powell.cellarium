@@ -30,6 +30,16 @@ public class RasterBlock extends Block {
 		setHardness(5F);
 		setResistance(5F);
 	}
+	
+	public RasterBlock(int par1, Material m) 
+	{
+		super(par1, m);
+		this.setLightOpacity(15);
+		setStepSound(Block.soundStoneFootstep);
+		setCreativeTab(Rasterland.tabRasterland);
+		setHardness(5F);
+		setResistance(5F);
+	}
 
 	/*  @Override
     public Icon getIcon(int par1, int par2) {
