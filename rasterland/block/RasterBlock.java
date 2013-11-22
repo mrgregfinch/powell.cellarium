@@ -1,19 +1,15 @@
 package powell.rasterland.block;
 
-import java.util.List;
-
 import net.minecraft.block.Block;
 //import net.minecraft.block.BlockOre;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import powell.rasterland.Rasterland;
 import powell.rasterland.network.ClientProxy;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class RasterBlock extends Block {
 
@@ -86,12 +82,14 @@ public class RasterBlock extends Block {
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public int getRenderType() 
 	{
 		return ClientProxy.rasterBlockRenderType;
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public int getLightValue(IBlockAccess world, int x, int y, int z) 
 	{
 		if (ClientProxy.rasterBlockRenderStage == 0) 

@@ -1,6 +1,7 @@
 package powell.rasterland.block;
 
 import powell.rasterland.Rasterland;
+import powell.rasterland.entity.RasterWallTileEntity;
 import powell.rasterland.item.ItemRasterBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
@@ -138,5 +139,10 @@ public class Blocks
 		
 		GameRegistry.registerBlock(rasterWall, "rasterWall");
 		LanguageRegistry.addName(rasterWall, "Raster Wall");
+	}
+	
+	public static void registerTileEntities()
+	{
+		GameRegistry.registerTileEntity(RasterWallTileEntity.class, "rasterWallTileEntityKey");
 	}
 }

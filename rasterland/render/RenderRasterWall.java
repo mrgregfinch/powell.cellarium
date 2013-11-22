@@ -117,7 +117,7 @@ public class RenderRasterWall implements ISimpleBlockRenderingHandler
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) 
     {
-    	
+    	/*
     	 boolean flag = this.canConnectWallTo(world, x, y, z - 1, block);
          boolean flag1 = this.canConnectWallTo(world, x, y, z + 1, block);
          boolean flag2 = this.canConnectWallTo(world, x - 1, y, z, block);
@@ -174,7 +174,60 @@ public class RenderRasterWall implements ISimpleBlockRenderingHandler
             renderer.renderStandardBlock(block, x, y, z);
             ClientProxy.rasterWallRenderStage = 0;
             renderer.clearOverrideBlockTexture();
-            return true;
+            return true;*/
+    	
+    	boolean flag = this.canConnectWallTo(world, x - 1, y, z, block);
+        boolean flag1 = this.canConnectWallTo(world, x + 1, y, z, block);
+        boolean flag2 = this.canConnectWallTo(world, x, y, z - 1, block);
+        boolean flag3 = this.canConnectWallTo(world, x, y, z + 1, block);
+        boolean flag4 = flag2 && flag3 && !flag && !flag1;
+        boolean flag5 = !flag2 && !flag3 && flag && flag1;
+        boolean flag6 = world.isAirBlock(x, y + 1, z);
+
+        if ((flag4 || flag5) && flag6)
+        {
+            if (flag4)
+            {
+            	renderer.setRenderBounds(0.3125D, 0.0D, 0.0D, 0.6875D, 0.8125D, 1.0D);
+            	renderer.renderStandardBlock(block, x, y, z);
+            }
+            else
+            {
+            	renderer.setRenderBounds(0.0D, 0.0D, 0.3125D, 1.0D, 0.8125D, 0.6875D);
+            	renderer.renderStandardBlock(block, x, y, z);
+            }
+        }
+        else
+        {
+        	renderer.setRenderBounds(0.25D, 0.0D, 0.25D, 0.75D, 1.0D, 0.75D);
+        	renderer.renderStandardBlock(block, x, y, z);
+
+            if (flag)
+            {
+            	renderer.setRenderBounds(0.0D, 0.0D, 0.3125D, 0.25D, 0.8125D, 0.6875D);
+            	renderer.renderStandardBlock(block, x, y, z);
+            }
+
+            if (flag1)
+            {
+            	renderer.setRenderBounds(0.75D, 0.0D, 0.3125D, 1.0D, 0.8125D, 0.6875D);
+            	renderer.renderStandardBlock(block, x, y, z);
+            }
+
+            if (flag2)
+            {
+            	renderer.setRenderBounds(0.3125D, 0.0D, 0.0D, 0.6875D, 0.8125D, 0.25D);
+            	renderer.renderStandardBlock(block, x, y, z);
+            }
+
+            if (flag3)
+            {
+            	renderer.setRenderBounds(0.3125D, 0.0D, 0.75D, 0.6875D, 0.8125D, 1.0D);
+            	renderer.renderStandardBlock(block, x, y, z);
+            }
+        }
+       // par1BlockWall.setBlockBoundsBasedOnState(this.blockAccess, par2, par3, par4);
+        return true;
     }
 
     @Override

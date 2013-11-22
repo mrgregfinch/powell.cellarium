@@ -72,6 +72,7 @@ public class Rasterland
 		
 		Fluids.load();
 		Blocks.load();
+		Blocks.registerTileEntities();
 		Items.load();
 		Biomes.load();
 		Entities.init();

@@ -1,18 +1,21 @@
 package powell.rasterland.block;
 
-import powell.rasterland.Rasterland;
-import powell.rasterland.network.ClientProxy;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockWall;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
+import powell.rasterland.Rasterland;
+import powell.rasterland.entity.RasterWallTileEntity;
+import powell.rasterland.network.ClientProxy;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-public class RasterWall extends BlockWall
+public class RasterWall extends BlockWall implements ITileEntityProvider
 {
 	public Block belowBlock = Block.glass;
 
@@ -72,11 +75,13 @@ public class RasterWall extends BlockWall
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public int getRenderType() 
 	{
 		return ClientProxy.rasterWallRenderType;
 	}
 
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getLightValue(IBlockAccess world, int x, int y, int z) 
 	{
@@ -94,5 +99,24 @@ public class RasterWall extends BlockWall
 			return 15;
 		}
 	}
+
+
+	@Override
+	public TileEntity createNewTileEntity(World world)
+	{
+		return new RasterWallTileEntity();
+	}
+	
+	/**
+     * Called on server worlds only when the block has been replaced by a different block ID, or the same block with a
+     * different metadata value, but before the new metadata value is set. Args: World, x, y, z, old block ID, old
+     * metadata
+     */
+	@Override
+    public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
+    {
+        super.breakBlock(par1World, par2, par3, par4, par5, par6);
+        par1World.removeBlockTileEntity(par2, par3, par4);
+    }
 
 }
