@@ -37,6 +37,8 @@ public class Blocks
 	
 	public static Block rasterWallBase;
 	public static Block rasterWall;
+	
+	public static Block gridGlass;
 
 	//private static final String[] awesomeColors = { "White", "Orange", "Magenta", "Light-Blue", "Yellow", "Lime", "Pink", "Gray", "Light-Gray", "Cyan", "Purple", "Blue", "Brown", "Green", "Red", "Black" };
 	private static final String[] RASTER_COLOR_NAMES = { "red", "orange", "yellow", "green", "blue", "purple"};
@@ -70,6 +72,8 @@ public class Blocks
 		testBlock = new TestBlock(226);
 		rasterWallBase = new RasterWallBase(1946);
 		rasterWall = new RasterWall(1947, rasterWallBase);
+		
+		gridGlass = new GridGlass(228);
 	}
 
 	public static void load()
@@ -139,6 +143,9 @@ public class Blocks
 		
 		GameRegistry.registerBlock(rasterWall, "rasterWall");
 		LanguageRegistry.addName(rasterWall, "Raster Wall");
+		
+		GameRegistry.registerBlock(gridGlass, "gridGlass");
+		LanguageRegistry.addName(gridGlass, "Grid Glass");
 	}
 	
 	public static void registerTileEntities()

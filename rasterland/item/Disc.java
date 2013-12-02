@@ -29,6 +29,7 @@ public class Disc extends Item
 		super(par1);
 		this.maxStackSize = 1;
 		this.setCreativeTab(Rasterland.tabRasterland);
+		this.setUnlocalizedName("disc");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -81,7 +82,8 @@ public class Disc extends Item
 
 		if (!world.isRemote)
 		{
-			world.spawnEntityInWorld(new EntityDisc(world, player));
+			//world, player throwing disc, a velocity multiplier
+			world.spawnEntityInWorld(new EntityDisc(world, player, 10));
 		}
 
 		return itemstack;

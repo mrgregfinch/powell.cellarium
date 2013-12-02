@@ -10,5 +10,6 @@ public class Entities
 	public static void init()
 	{
 		EntityRegistry.registerModEntity(EntityDisc.class, "Raster Disc", ++modEntityID, Rasterland.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(EntityRasterBike3.class, "Raster Bike", ++modEntityID, Rasterland.instance, 64, 10, true);
 	}
 }

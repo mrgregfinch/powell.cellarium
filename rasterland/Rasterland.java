@@ -1,8 +1,11 @@
 package powell.rasterland;
 
 
+import java.util.EnumSet;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.DimensionManager;
@@ -14,20 +17,26 @@ import powell.rasterland.event.RasterizedPlayerEventHandler;
 import powell.rasterland.fluids.Fluids;
 import powell.rasterland.gui.EnergyBarGui;
 import powell.rasterland.item.Items;
+import powell.rasterland.keyhandler.RasterBikeKeyHandler;
+import powell.rasterland.keyhandler.RasterPlayerTickHandler;
 import powell.rasterland.network.CommonProxy;
 import powell.rasterland.network.RasterlandPacketHandler;
 import powell.rasterland.world.RasterWorldStructureGenerator;
 import powell.rasterland.world.RasterlandWorldProvider;
+import cpw.mods.fml.client.registry.KeyBindingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.TickType;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid=ModInfo.ID, name=ModInfo.NAME, version=ModInfo.VERSION)
 @NetworkMod(channels = {"rasterlandChan", "rasterizedPlayer"}, clientSideRequired=true, serverSideRequired = true, 
@@ -85,6 +94,15 @@ public class Rasterland
 		GameRegistry.registerWorldGenerator(new RasterWorldStructureGenerator());
 		
 		proxy.registerRenderers();
+		
+		
+		
+		//test key code
+//		KeyBinding[] key = {new KeyBinding("Name of Key", Minecraft.getMinecraft().gameSettings.keyBindRight.keyCode)};
+//		boolean[] repeat = {false};
+//		KeyBindingRegistry.registerKeyBinding(new RasterBikeKeyHandler(key, repeat));
+//		
+//		TickRegistry.registerTickHandler(new RasterPlayerTickHandler(EnumSet.of(TickType.PLAYER)), Side.SERVER);
 	}
 
 	@EventHandler // used in 1.6.2
