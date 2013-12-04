@@ -183,47 +183,212 @@ public class RenderRasterWall implements ISimpleBlockRenderingHandler
         boolean flag4 = flag2 && flag3 && !flag && !flag1;
         boolean flag5 = !flag2 && !flag3 && flag && flag1;
         boolean flag6 = world.isAirBlock(x, y + 1, z);
+        
+        
+        
+      double f;
+      double f1;
+      double f2;
+      double f3;
+      double f4;
+      double f5;
+        
+        
+        
 
         if ((flag4 || flag5) && flag6)
         {
             if (flag4)
             {
-            	renderer.setRenderBounds(0.3125D, 0.0D, 0.0D, 0.6875D, 0.8125D, 1.0D);
-            	renderer.renderStandardBlock(block, x, y, z);
+            	f = .3125;
+            	f1 = 0.0;
+            	f2 = 0.0;
+            	f3 = .6875;
+            	f4 = .8125;
+            	f5 = 1.0;
+            	
+            	
+            	RasterWall handlerBlock = (RasterWall) block;
+                ClientProxy.rasterWallRenderStage = 0;
+                renderer.setRenderBounds(f+.001, f1+.001, f2+.001, f3-.001, f4-.001, f5-.001);
+                renderer.setOverrideBlockTexture(handlerBlock.belowBlock.getBlockTextureFromSide(0));
+                renderer.renderStandardBlock(block, x, y, z);
+                ClientProxy.rasterWallRenderStage = 1;
+                renderer.setRenderBounds(f,f1, f2, f3, f4, f5);
+                renderer.clearOverrideBlockTexture();
+                renderer.renderStandardBlock(block, x, y, z);
+                ClientProxy.rasterWallRenderStage = 0;
+                renderer.clearOverrideBlockTexture();
+            	
+            	
+            	
+            	
+            	//renderer.setRenderBounds(0.3125D, 0.0D, 0.0D, 0.6875D, 0.8125D, 1.0D);
+            	//renderer.renderStandardBlock(block, x, y, z);
             }
             else
             {
-            	renderer.setRenderBounds(0.0D, 0.0D, 0.3125D, 1.0D, 0.8125D, 0.6875D);
-            	renderer.renderStandardBlock(block, x, y, z);
+            	
+            	f = 0.0;
+            	f1 = 0.0;
+            	f2 = 0.3125;
+            	f3 = 1.0;
+            	f4 = .8125;
+            	f5 = .6875;
+            	
+            	
+            	RasterWall handlerBlock = (RasterWall) block;
+                ClientProxy.rasterWallRenderStage = 0;
+                renderer.setRenderBounds(f+.001, f1+.001, f2+.001, f3-.001, f4-.001, f5-.001);
+                renderer.setOverrideBlockTexture(handlerBlock.belowBlock.getBlockTextureFromSide(0));
+                renderer.renderStandardBlock(block, x, y, z);
+                ClientProxy.rasterWallRenderStage = 1;
+                renderer.setRenderBounds(f,f1, f2, f3, f4, f5);
+                renderer.clearOverrideBlockTexture();
+                renderer.renderStandardBlock(block, x, y, z);
+                ClientProxy.rasterWallRenderStage = 0;
+                renderer.clearOverrideBlockTexture();
+            	
+            	
+            	//renderer.setRenderBounds(0.0D, 0.0D, 0.3125D, 1.0D, 0.8125D, 0.6875D);
+            	//renderer.renderStandardBlock(block, x, y, z);
             }
         }
         else
         {
-        	renderer.setRenderBounds(0.25D, 0.0D, 0.25D, 0.75D, 1.0D, 0.75D);
-        	renderer.renderStandardBlock(block, x, y, z);
+        	
+        	f = .25;
+        	f1 = 0.0;
+        	f2 = 0.25;
+        	f3 = .75;
+        	f4 = 1.0;
+        	f5 = .75;
+        	
+        	
+        	RasterWall handlerBlock = (RasterWall) block;
+            ClientProxy.rasterWallRenderStage = 0;
+            renderer.setRenderBounds(f+.001, f1+.001, f2+.001, f3-.001, f4-.001, f5-.001);
+            renderer.setOverrideBlockTexture(handlerBlock.belowBlock.getBlockTextureFromSide(0));
+            renderer.renderStandardBlock(block, x, y, z);
+            ClientProxy.rasterWallRenderStage = 1;
+            renderer.setRenderBounds(f,f1, f2, f3, f4, f5);
+            renderer.clearOverrideBlockTexture();
+            renderer.renderStandardBlock(block, x, y, z);
+            ClientProxy.rasterWallRenderStage = 0;
+            renderer.clearOverrideBlockTexture();
+        	
+        	
+        	
+        //	renderer.setRenderBounds(0.25D, 0.0D, 0.25D, 0.75D, 1.0D, 0.75D);
+        //	renderer.renderStandardBlock(block, x, y, z);
 
             if (flag)
             {
-            	renderer.setRenderBounds(0.0D, 0.0D, 0.3125D, 0.25D, 0.8125D, 0.6875D);
-            	renderer.renderStandardBlock(block, x, y, z);
+            	f = 0.0;
+            	f1 = 0.0;
+            	f2 = .3125;
+            	f3 = .25;
+            	f4 = .8125;
+            	f5 = .6875;
+            	
+            	
+            //	RasterWall handlerBlock = (RasterWall) block;
+                ClientProxy.rasterWallRenderStage = 0;
+                renderer.setRenderBounds(f+.001, f1+.001, f2+.001, f3-.001, f4-.001, f5-.001);
+                renderer.setOverrideBlockTexture(handlerBlock.belowBlock.getBlockTextureFromSide(0));
+                renderer.renderStandardBlock(block, x, y, z);
+                ClientProxy.rasterWallRenderStage = 1;
+                renderer.setRenderBounds(f,f1, f2, f3, f4, f5);
+                renderer.clearOverrideBlockTexture();
+                renderer.renderStandardBlock(block, x, y, z);
+                ClientProxy.rasterWallRenderStage = 0;
+                renderer.clearOverrideBlockTexture();
+            	
+            	
+            	//renderer.setRenderBounds(0.0D, 0.0D, 0.3125D, 0.25D, 0.8125D, 0.6875D);
+            	//renderer.renderStandardBlock(block, x, y, z);
             }
 
             if (flag1)
             {
-            	renderer.setRenderBounds(0.75D, 0.0D, 0.3125D, 1.0D, 0.8125D, 0.6875D);
-            	renderer.renderStandardBlock(block, x, y, z);
+            	f = .75;
+            	f1 = 0.0;
+            	f2 = 0.3125;
+            	f3 = 1.0;
+            	f4 = .8125;
+            	f5 = .6875;
+            	
+            	
+            	//RasterWall handlerBlock = (RasterWall) block;
+                ClientProxy.rasterWallRenderStage = 0;
+                renderer.setRenderBounds(f+.001, f1+.001, f2+.001, f3-.001, f4-.001, f5-.001);
+                renderer.setOverrideBlockTexture(handlerBlock.belowBlock.getBlockTextureFromSide(0));
+                renderer.renderStandardBlock(block, x, y, z);
+                ClientProxy.rasterWallRenderStage = 1;
+                renderer.setRenderBounds(f,f1, f2, f3, f4, f5);
+                renderer.clearOverrideBlockTexture();
+                renderer.renderStandardBlock(block, x, y, z);
+                ClientProxy.rasterWallRenderStage = 0;
+                renderer.clearOverrideBlockTexture();
+            	
+            	
+            	//renderer.setRenderBounds(0.75D, 0.0D, 0.3125D, 1.0D, 0.8125D, 0.6875D);
+            	//renderer.renderStandardBlock(block, x, y, z);
             }
 
             if (flag2)
             {
-            	renderer.setRenderBounds(0.3125D, 0.0D, 0.0D, 0.6875D, 0.8125D, 0.25D);
-            	renderer.renderStandardBlock(block, x, y, z);
+            	
+            	f = .3125;
+            	f1 = 0.0;
+            	f2 = 0.0;
+            	f3 = .6875;
+            	f4 = .8125;
+            	f5 = .25;
+            	
+            	
+            //	RasterWall handlerBlock = (RasterWall) block;
+                ClientProxy.rasterWallRenderStage = 0;
+                renderer.setRenderBounds(f+.001, f1+.001, f2+.001, f3-.001, f4-.001, f5-.001);
+                renderer.setOverrideBlockTexture(handlerBlock.belowBlock.getBlockTextureFromSide(0));
+                renderer.renderStandardBlock(block, x, y, z);
+                ClientProxy.rasterWallRenderStage = 1;
+                renderer.setRenderBounds(f,f1, f2, f3, f4, f5);
+                renderer.clearOverrideBlockTexture();
+                renderer.renderStandardBlock(block, x, y, z);
+                ClientProxy.rasterWallRenderStage = 0;
+                renderer.clearOverrideBlockTexture();
+                
+                
+            	//renderer.setRenderBounds(0.3125D, 0.0D, 0.0D, 0.6875D, 0.8125D, 0.25D);
+            	//renderer.renderStandardBlock(block, x, y, z);
             }
 
             if (flag3)
             {
-            	renderer.setRenderBounds(0.3125D, 0.0D, 0.75D, 0.6875D, 0.8125D, 1.0D);
-            	renderer.renderStandardBlock(block, x, y, z);
+            	f = .3125;
+            	f1 = 0.0;
+            	f2 = 0.75;
+            	f3 = .6875;
+            	f4 = .8125;
+            	f5 = 1.0;
+            	
+            	
+            	//RasterWall handlerBlock = (RasterWall) block;
+                ClientProxy.rasterWallRenderStage = 0;
+                renderer.setRenderBounds(f+.001, f1+.001, f2+.001, f3-.001, f4-.001, f5-.001);
+                renderer.setOverrideBlockTexture(handlerBlock.belowBlock.getBlockTextureFromSide(0));
+                renderer.renderStandardBlock(block, x, y, z);
+                ClientProxy.rasterWallRenderStage = 1;
+                renderer.setRenderBounds(f,f1, f2, f3, f4, f5);
+                renderer.clearOverrideBlockTexture();
+                renderer.renderStandardBlock(block, x, y, z);
+                ClientProxy.rasterWallRenderStage = 0;
+                renderer.clearOverrideBlockTexture();
+            	
+            	
+            	//renderer.setRenderBounds(0.3125D, 0.0D, 0.75D, 0.6875D, 0.8125D, 1.0D);
+            	//renderer.renderStandardBlock(block, x, y, z);
             }
         }
        // par1BlockWall.setBlockBoundsBasedOnState(this.blockAccess, par2, par3, par4);

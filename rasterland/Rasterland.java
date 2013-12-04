@@ -49,8 +49,10 @@ public class Rasterland
 	@Instance(value = ModInfo.ID)
 	public static Rasterland instance;
 
-	public static CreativeTabs tabRasterland = new CreativeTabs("tabRasterland") {
-		public ItemStack getIconItemStack() {
+	public static CreativeTabs tabRasterland = new CreativeTabs("tabRasterland") 
+	{
+		public ItemStack getIconItemStack() 
+		{
 			return new ItemStack(Block.glowStone, 1, 0);
 		}
 	};

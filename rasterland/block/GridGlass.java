@@ -31,12 +31,12 @@ public class GridGlass extends RasterBlock
 		super(par1, Material.glass);
 		setStepSound(Block.soundGlassFootstep);
 		setUnlocalizedName("gridGlass");
-		this.belowBlock = Block.glass;
+		this.belowBlock = Blocks.gridGlassBase;
 	}
 
 	public void registerIcons(IconRegister iconRegistry)
 	{
-		for (int i = 0; i < 47; i++) textures[i] = iconRegistry.registerIcon("rasterland:\\gridglass\\woodGlass_" + (i+1));
+		for (int i = 0; i < 47; i++) textures[i] = iconRegistry.registerIcon("rasterland:/gridglass/woodGlass_" + (i+1));
 	}
 
 	public Icon getIcon(int side, int meta)
@@ -87,6 +87,12 @@ public class GridGlass extends RasterBlock
 		for (int i = 0; i <= 7; i++) idBuilder = idBuilder + (bitMatrix[i]?(i==0?1:(i==1?2:(i==2?4:(i==3?8:(i==4?16:(i==5?32:(i==6?64:128))))))):0);
 
 		return idBuilder>255||idBuilder<0?textures[0]:textures[textureRefByID[idBuilder]];
+	}
+	
+	@Override
+	public int getRenderBlockPass()
+	{
+		return 1;
 	}
 
 }
